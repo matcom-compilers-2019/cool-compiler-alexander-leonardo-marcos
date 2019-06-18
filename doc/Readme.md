@@ -4,17 +4,9 @@
 
 **Nombre** | **Grupo** | **Github**
 --|--|--
-Nombre1 Apellido1 Apellido2 | C4xx | [@github_user](https://github.com/<user>)
-Nombre2 Apellido1 Apellido2 | C4xx | [@github_user](https://github.com/<user>)
-Nombre3 Apellido1 Apellido2 | C4xx | [@github_user](https://github.com/<user>)
-
-## Readme
-
-Modifique el contenido documento para documentar de forma clara y concisa los siguientes aspectos:
-
-- Cómo ejecutar (y compilar si es necesario) su compilador.
-- Requisitos adicionales, dependencias, configuración, etc.
-- Opciones adicionales que tenga su compilador.
+Alexander A. Gonzalez Fertel | C412 | [@alexfertel](https://github.com/alexfertel)
+Leonardo Fleitas ALvarez | C412 | [@github_user](https://github.com/<user>)
+Marcos Toranzo Alfonso | C412 | [@marcostoranzo](https://github.com/marcostoranzo)
 
 ## Reporte escrito
 
