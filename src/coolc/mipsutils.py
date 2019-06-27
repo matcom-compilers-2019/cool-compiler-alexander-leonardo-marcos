@@ -73,6 +73,7 @@ class op:
     div = 'div'
     divu = 'divu'
     mul = 'mul'
+    mulu = 'mulu'
     mulo = 'mulo'
     mulou = 'mulou'
     mult = 'mult'

@@ -1,0 +1,177 @@
+.TYPES
+
+type Object {
+    Object_ctr: Object_ctr
+}
+
+type IO {
+    IO_ctr: IO_ctr
+    IO_abort: Object_abort
+    IO_copy: Object_copy
+    IO_type_name: Object_type_name
+    IO_in_int: IO_in_int
+    IO_in_string: IO_in_string
+    IO_out_int: IO_out_int
+    IO_out_string: IO_out_string
+}
+
+type Int {
+    Int_ctr: Int_ctr
+    Int_abort: Object_abort
+    Int_copy: Object_copy
+    Int_type_name: Object_type_name
+}
+
+type Bool {
+    Bool_ctr: Bool_ctr
+    Bool_abort: Object_abort
+    Bool_copy: Object_copy
+    Bool_type_name: Object_type_name
+}
+
+type String {
+    String_ctr: String_ctr
+    String_abort: Object_abort
+    String_copy: Object_copy
+    String_type_name: Object_type_name
+    String_length: String_length
+    String_concat: String_concat
+    String_substr: String_substr
+}
+
+type Silly {
+    Silly_ctr: Silly_ctr
+    Silly_abort: Object_abort
+    Silly_copy: Object_copy
+    Silly_type_name: Object_type_name
+}
+
+type Sally {
+    Sally_ctr: Sally_ctr
+    Sally_abort: Object_abort
+    Sally_copy: Object_copy
+    Sally_type_name: Object_type_name
+}
+
+type Main {
+    Main_ctr: Main_ctr
+    Main_abort: Object_abort
+    Main_copy: Object_copy
+    Main_type_name: Object_type_name
+    Main_main: Main_main
+}
+
+.DATA
+data_0 = ''
+
+.CODE
+
+function Object_ctr {
+    PARAM self
+    RETURN self
+}
+
+function IO_ctr {
+    PARAM self
+    RETURN self
+}
+
+function IO_in_int {
+    PARAM self
+}
+
+function IO_in_string {
+    PARAM self
+}
+
+function IO_out_int {
+    PARAM self
+    PARAM arg
+}
+
+function IO_out_string {
+    PARAM self
+    PARAM arg
+}
+
+function Int_ctr {
+    PARAM self
+    SETATTR self _val void
+    RETURN self
+}
+
+function Bool_ctr {
+    PARAM self
+    SETATTR self _val void
+    RETURN self
+}
+
+function String_ctr {
+    LOCAL 0_ctr_internal
+    LOCAL 1_ctr_internal
+    PARAM self
+    0_ctr_internal = ALLOCATE String
+    SETATTR 0_ctr_internal 0 data_0
+    SETATTR self _val 0_ctr_internal
+    1_ctr_internal = ALLOCATE Int
+    SETATTR 1_ctr_internal 0 0
+    SETATTR self _length 1_ctr_internal
+    RETURN self
+}
+
+function String_length {
+    PARAM self
+}
+
+function String_concat {
+    PARAM self
+    PARAM arg
+}
+
+function String_substr {
+    PARAM self
+    PARAM arg1
+    PARAM arg2
+}
+
+function Silly_ctr {
+    PARAM self
+    RETURN self
+}
+
+function Sally_ctr {
+    PARAM self
+    RETURN self
+}
+
+function Main_ctr {
+    LOCAL 2_ctr_internal
+    LOCAL 3_ctr_internal
+    LOCAL 4_ctr_internal
+    PARAM self
+    2_ctr_internal = ALLOCATE Sally
+    ARG self
+    2_ctr_internal = CALL Sally_ctr
+    ARG self
+    3_ctr_internal = TYPEOF 2_ctr_internal
+    4_ctr_internal = VCALL 3_ctr_internal copy
+    SETATTR self x 4_ctr_internal
+    RETURN self
+}
+
+function Main_main {
+    LOCAL 5_main_x
+    PARAM self
+    RETURN 5_main_x
+}
+
+function entry {
+    LOCAL 6_main_instance
+    LOCAL 7_main_internal
+    6_main_instance = ALLOCATE Main
+    ARG 6_main_instance
+    6_main_instance = CALL Main_ctr
+    ARG 6_main_instance
+    7_main_internal = VCALL Main Main_main
+    RETURN 0
+}

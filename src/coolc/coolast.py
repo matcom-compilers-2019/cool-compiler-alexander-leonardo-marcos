@@ -44,6 +44,7 @@ class Class(Node):
         self.parent = parent
         self.features = list(features) if features else []
         self.inherited = []
+        self.merged = []
 
     def to_tuple(self):
         return tuple([
@@ -125,6 +126,9 @@ class ClassMethod(ClassFeature):
     def to_readable(self):
         return "{}(name='{}', formal_params={}, return_type={}, body={})".format(
             self.clsname, self.name, self.formal_params, self.return_type, self.body)
+
+    def __eq__(self, other):
+        return self.name == other.name 
 
 
 class ClassAttribute(ClassFeature):
@@ -319,7 +323,7 @@ class Assignment(Expr):
         ])
 
     def to_readable(self):
-        return "{}(identifier={}, expr={})".format(self.clsname, self.instance, self.expr)
+        return "{}(identifier={}, expr={})".format(self.clsname, self.identifier, self.expr)
 
 
 class Block(Expr):

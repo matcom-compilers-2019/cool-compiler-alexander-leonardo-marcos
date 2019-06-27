@@ -63,13 +63,13 @@ class TypesVisitor:
         # Int Class
         int_class = ast.Class(name="Int", parent=object_class.name, features=[
             # _val attribute: integer un-boxed value
-            ast.ClassAttribute(name="_val", attr_type="unboxed_int", init_expr=None)
+            ast.ClassAttribute(name="_val", attr_type="Int", init_expr=None)
         ])
 
         # Bool Class
         bool_class = ast.Class(name="Bool", parent=object_class.name, features=[
             # _val attribute: boolean un-boxed value
-            ast.ClassAttribute(name="_val", attr_type="unboxed_boolean", init_expr=None)
+            ast.ClassAttribute(name="_val", attr_type="Bool", init_expr=None)
         ])
 
         # String Class
@@ -78,7 +78,7 @@ class TypesVisitor:
             ast.ClassAttribute(name='_val', attr_type='Int', init_expr=None),
 
             # _str_field attribute: an un-boxed, untyped string value
-            ast.ClassAttribute(name='_str_field', attr_type="unboxed_string", init_expr=None),
+            ast.ClassAttribute(name='_str_field', attr_type="String", init_expr=None),
 
             # length method: returns the string's length
             ast.ClassMethod(name='length', formal_params=[], return_type='Int', body=None),

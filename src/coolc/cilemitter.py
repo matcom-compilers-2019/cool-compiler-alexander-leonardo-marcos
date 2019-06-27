@@ -1,9 +1,11 @@
-from . import cilast as cil
+from . import cilast as ast
 from . import visitor
+from .scope import VariableInfo
 
 class CILWriterVisitor(object):
-    def __init__(self):
+    def __init__(self, context):
         self.output = []
+        self.context = context
 
     def emit(self, msg):
         self.output.append(msg)
@@ -12,16 +14,22 @@ class CILWriterVisitor(object):
         self.output.append('')
 
     def get_value(self, value):
-        return value if isinstance(value, int) else value.name
+        if isinstance(value, int):
+            return value
+        elif isinstance(value, VariableInfo):
+            return value.name
+        else:
+            return value.vinfo.name
 
     @visitor.on('node')
     def visit(self, node):
         pass
 
-    @visitor.when(cil.CILProgramNode)
-    def visit(self, node:cil.CILProgramNode):
+    @visitor.when(ast.CILProgram)
+    def visit(self, node:  ast.CILProgram):
         self.emit('.TYPES')
         for x in node.dottypes:
+            # print(x.name)
             self.visit(x)
         self.black()
 
@@ -35,165 +43,180 @@ class CILWriterVisitor(object):
             self.visit(x)
 
 
-    @visitor.when(cil.CILTypeNode)
-    def visit(self, node:cil.CILTypeNode):
-        pass
+    @visitor.when(ast.CILType)
+    def visit(self, node: ast.CILType):
+        self.black()
 
-    @visitor.when(cil.CILDataNode)
-    def visit(self, node:cil.CILDataNode):
-        self.emit(f'{node.vname} = {node.value}')
+        self.emit(f'type {node.name} {{')
+        for method in node.methods:
+            # print(method.mname)
+            self.visit(method)
+        # self.black()
 
-    @visitor.when(cil.CILFunctionNode)
-    def visit(self, node:cil.CILFunctionNode):
+        self.emit('}')
+
+    @visitor.when(ast.CILMethod)
+    def visit(self, node: ast.CILMethod):
+        self.emit(f'    {node.mname}: {self.context.mmap[node.mname]}')
+
+    @visitor.when(ast.CILData)
+    def visit(self, node: ast.CILData):
+        self.emit(f'{node.name} = {repr(node.value)}')
+
+    @visitor.when(ast.CILFunction)
+    def visit(self, node: ast.CILFunction):
         self.black()
 
         self.emit(f'function {node.fname} {{')
-        for x in node.params:
-            self.visit(x)
-        if node.params:
-            self.black()
 
-        for x in node.localvars:
-            self.visit(x)
-        if node.localvars:
-            self.black()
+        for local in node.localvars:
+            self.visit(local)
 
         for x in node.instructions:
             self.visit(x)
         self.emit('}')
 
-    @visitor.when(cil.CILParamNode)
-    def visit(self, node:cil.CILParamNode):
-        pass
+    @visitor.when(ast.CILParam)
+    def visit(self, node: ast.CILParam):
+        self.emit(f'    PARAM {node.vinfo.name}')
 
-    @visitor.when(cil.CILLocalNode)
-    def visit(self, node:cil.CILLocalNode):
+    @visitor.when(ast.CILLocal)
+    def visit(self, node: ast.CILLocal):
         self.emit(f'    LOCAL {node.vinfo.name}')
 
-    @visitor.when(cil.CILAssignNode)
-    def visit(self, node:cil.CILAssignNode):
-        dest = node.dest.name
+    @visitor.when(ast.CILAssign)
+    def visit(self, node: ast.CILAssign):
+        dest = node.dest
         source = self.get_value(node.source)
-        self.emit(f'    {dest} = {source}')
+        self.emit(f'    {dest.name} = {source}')
 
-    @visitor.when(cil.CILPlusNode)
-    def visit(self, node:cil.CILPlusNode):
+    @visitor.when(ast.CILPlus)
+    def visit(self, node: ast.CILPlus):
         dest = node.dest.name
         left = self.get_value(node.left)
         right = self.get_value(node.right)
         self.emit(f'    {dest} = {left} + {right}')
 
-    @visitor.when(cil.CILMinusNode)
-    def visit(self, node:cil.CILMinusNode):
+    @visitor.when(ast.CILMinus)
+    def visit(self, node: ast.CILMinus):
         dest = node.dest.name
         left = self.get_value(node.left)
         right = self.get_value(node.right)
         self.emit(f'    {dest} = {left} - {right}')
 
-    @visitor.when(cil.CILStarNode)
-    def visit(self, node:cil.CILStarNode):
+    @visitor.when(ast.CILStar)
+    def visit(self, node: ast.CILStar):
         dest = node.dest.name
         left = self.get_value(node.left)
         right = self.get_value(node.right)
         self.emit(f'    {dest} = {left} * {right}')
 
-    @visitor.when(cil.CILDivNode)
-    def visit(self, node:cil.CILDivNode):
+    @visitor.when(ast.CILDiv)
+    def visit(self, node: ast.CILDiv):
         dest = node.dest.name
         left = self.get_value(node.left)
         right = self.get_value(node.right)
         self.emit(f'    {dest} = {left} / {right}')
 
-    @visitor.when(cil.CILGetAttribNode)
-    def visit(self, node:cil.CILGetAttribNode):
-        pass
+    @visitor.when(ast.CILGetAttrib)
+    def visit(self, node: ast.CILGetAttrib):
+        # inst = self.visit(node.instance)
+        # attr = self.visit(node.attribute)
+        self.emit(f'    {node.dest.name} = GETATTR {node.instance.name} {node.attribute}')
 
-    @visitor.when(cil.CILSetAttribNode)
-    def visit(self, node:cil.CILSetAttribNode):
-        pass
+    @visitor.when(ast.CILSetAttrib)
+    def visit(self, node: ast.CILSetAttrib):
+        # inst = self.visit(node.instance)
+        # attr = self.visit(node.attribute)
+        # src = self.visit(node.src)
+        # print(node.instance)
 
-    @visitor.when(cil.CILGetIndexNode)
-    def visit(self, node:cil.CILGetIndexNode):
-        pass
+        if isinstance(node.src, ast.CILData) or isinstance(node.src, VariableInfo):
+            src = node.src.name
+        else:
+            src = node.src
+        self.emit(f'    SETATTR {node.instance.name} {"content" if 0 else node.attribute} {src}')
 
-    @visitor.when(cil.CILSetIndexNode)
-    def visit(self, node:cil.CILSetIndexNode):
-        pass
+    @visitor.when(ast.CILAllocate)
+    def visit(self, node: ast.CILAllocate):
+        self.emit(f'    {node.dest.name} = ALLOCATE {node.ttype}')
 
-    @visitor.when(cil.CILAllocateNode)
-    def visit(self, node:cil.CILAllocateNode):
-        pass
+    @visitor.when(ast.CILTypeOf)
+    def visit(self, node: ast.CILTypeOf):
+        self.emit(f'    {node.dest.name} = TYPEOF {node.var.name}')
 
-    @visitor.when(cil.CILArrayNode)
-    def visit(self, node:cil.CILArrayNode):
-        pass
+    @visitor.when(ast.CILLabel)
+    def visit(self, node: ast.CILLabel):
+        self.emit(f'    LABEL {node.name}')
 
-    @visitor.when(cil.CILTypeOfNode)
-    def visit(self, node:cil.CILTypeOfNode):
-        pass
+    @visitor.when(ast.CILGoto)
+    def visit(self, node: ast.CILGoto):
+        self.emit(f'    GOTO {node.name}')
 
-    @visitor.when(cil.CILLabelNode)
-    def visit(self, node:cil.CILLabelNode):
-        pass
+    @visitor.when(ast.CILGotoIf)
+    def visit(self, node: ast.CILGotoIf):
+        cond = self.visit(node.condition)
+        self.emit(f'    IF {cond} GOTO {node.label}')
 
-    @visitor.when(cil.CILGotoNode)
-    def visit(self, node:cil.CILGotoNode):
-        pass
+    @visitor.when(ast.CILCall)
+    def visit(self, node: ast.CILCall):
+        self.emit(f'    {node.dest.name} = CALL {node.func}')
 
-    @visitor.when(cil.CILGotoIfNode)
-    def visit(self, node:cil.CILGotoIfNode):
-        pass
+    @visitor.when(ast.CILVCall)
+    def visit(self, node: ast.CILVCall):
+        if isinstance(node.ttype, str):
+            ttype = node.ttype
+        else:
+            ttype = node.ttype.name
+        self.emit(f'    {node.dest.name} = VCALL {ttype} {node.func}')
 
-    @visitor.when(cil.CILCallNode)
-    def visit(self, node:cil.CILCallNode):
-        pass
+    @visitor.when(ast.CILArg)
+    def visit(self, node: ast.CILArg):
+        self.emit(f'    ARG {node.vinfo.name}')
 
-    @visitor.when(cil.CILVCallNode)
-    def visit(self, node:cil.CILVCallNode):
-        pass
-
-    @visitor.when(cil.CILArgNode)
-    def visit(self, node:cil.CILArgNode):
-        pass
-
-    @visitor.when(cil.CILReturnNode)
-    def visit(self, node:cil.CILReturnNode):
+    @visitor.when(ast.CILReturn)
+    def visit(self, node: ast.CILReturn):
         value = self.get_value(node.value)
         value = "" if value is None else str(value)
         self.emit(f'    RETURN {value}')
 
-    @visitor.when(cil.CILLoadNode)
-    def visit(self, node:cil.CILLoadNode):
-        dest = node.dest.name
-        self.emit(f'    {dest} = LOAD {node.msg.vname}')
+    # @visitor.when(ast.CILLoad)
+    # def visit(self, node: ast.CILLoad):
+    #     dest = node.dest.name
+    #     self.emit(f'    {dest} = LOAD {node.msg.vname}')
 
-    @visitor.when(cil.CILLengthNode)
-    def visit(self, node:cil.CILLengthNode):
-        pass
+    @visitor.when(ast.CILDummy)
+    def visit(self, node: ast.CILDummy):
+        self.emit(f'    DIRECT {node.value}')
 
-    @visitor.when(cil.CILConcatNode)
-    def visit(self, node:cil.CILConcatNode):
-        pass
 
-    @visitor.when(cil.CILPrefixNode)
-    def visit(self, node:cil.CILPrefixNode):
-        pass
+    # @visitor.when(ast.CILLength)
+    # def visit(self, node: ast.CILLength):
+    #     pass
 
-    @visitor.when(cil.CILSubstringNode)
-    def visit(self, node:cil.CILSubstringNode):
-        pass
+    # @visitor.when(ast.CILConcat)
+    # def visit(self, node: ast.CILConcat):
+    #     pass
 
-    @visitor.when(cil.CILToStrNode)
-    def visit(self, node:cil.CILToStrNode):
-        dest = node.dest.name
-        ivalue = self.get_value(node.ivalue)
-        self.emit(f'    {dest} = STR {ivalue}')
+    # @visitor.when(ast.CILPrefix)
+    # def visit(self, node: ast.CILPrefix):
+    #     pass
 
-    @visitor.when(cil.CILReadNode)
-    def visit(self, node:cil.CILReadNode):
-        dest = node.dest.name
-        self.emit(f'    {dest} = READ')
+    # @visitor.when(ast.CILSubstring)
+    # def visit(self, node: ast.CILSubstring):
+    #     pass
 
-    @visitor.when(cil.CILPrintNode)
-    def visit(self, node:cil.CILPrintNode):
-        self.emit(f'    PRINT {node.str_addr.name}')
+    # @visitor.when(ast.CILToStr)
+    # def visit(self, node: ast.CILToStr):
+    #     dest = node.dest.name
+    #     ivalue = self.get_value(node.ivalue)
+    #     self.emit(f'    {dest} = STR {ivalue}')
+
+    # @visitor.when(ast.CILRead)
+    # def visit(self, node: ast.CILRead):
+    #     dest = node.dest.name
+    #     self.emit(f'    {dest} = READ')
+
+    # @visitor.when(ast.CILPrint)
+    # def visit(self, node: ast.CILPrint):
+    #     self.emit(f'    PRINT {node.str_addr.name}')

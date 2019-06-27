@@ -17,8 +17,8 @@ class CILType(CILNode):
 
 
 class CILData(CILNode):
-    def __init__(self, vname, value):
-        self.vname = vname
+    def __init__(self, name, value):
+        self.name = name
         self.value = value
 
 
@@ -44,13 +44,13 @@ class CILMethod(CILNode):
 
 
 class CILParam(CILNode):
-    def __init__(self, value):
-        self.value = value
+    def __init__(self, vinfo):
+        self.vinfo = vinfo
 
 
 class CILLocal(CILNode):
-    def __init__(self, value):
-        self.value = value
+    def __init__(self, vinfo):
+        self.vinfo = vinfo
 
 
 class CILInstruction(CILNode):
@@ -106,7 +106,8 @@ class CILLessThanOrEqual(CILBoolean):
 
 
 class CILGetAttrib(CILInstruction):
-    def __init__(self, instance, attribute):
+    def __init__(self, dest, instance, attribute):
+        self.dest = dest
         self.instance = instance
         self.attribute = attribute
 
@@ -119,12 +120,14 @@ class CILSetAttrib(CILInstruction):
 
 
 class CILAllocate(CILInstruction):
-    def __init__(self, ttype):
+    def __init__(self, dest, ttype):
+        self.dest = dest
         self.ttype = ttype
 
 
 class CILTypeOf(CILInstruction):
-    def __init__(self, var):
+    def __init__(self, dest, var):
+        self.dest = dest        
         self.var = var
 
 
@@ -145,22 +148,26 @@ class CILGotoIf(CILInstruction):
 
 
 class CILCall(CILInstruction):
-    def __init__(self, func):
+    def __init__(self, dest, func):
+        self.dest = dest
         self.func = func
 
 
 class CILVCall(CILInstruction):
-    def __init__(self, ttype, func):
+    def __init__(self, dest, ttype, func):
+        self.dest = dest
         self.ttype = ttype
         self.func = func
 
 
 class CILArg(CILInstruction):
-    pass
+    def __init__(self, vinfo):
+        self.vinfo = vinfo
 
 
 class CILReturn(CILInstruction):
-    pass
+    def __init__(self, value):
+        self.value = value
 
 
 class CILDummy(CILInstruction):
@@ -170,6 +177,7 @@ class CILDummy(CILInstruction):
 
 # class CILLoad(CILInstruction):
 #     def __init__(self, dest, value):
+#         self.dest = dest
 #         self.value = value
 
 
