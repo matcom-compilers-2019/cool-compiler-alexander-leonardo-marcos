@@ -1,0 +1,580 @@
+.TYPES
+
+type Object {
+    Object_ctr: Object_ctr
+    Object_abort: Object_abort
+    Object_copy: Object_copy
+    Object_type_name: Object_type_name
+}
+
+type IO {
+    IO_ctr: IO_ctr
+    IO_abort: Object_abort
+    IO_copy: Object_copy
+    IO_type_name: Object_type_name
+    IO_in_int: IO_in_int
+    IO_in_string: IO_in_string
+    IO_out_int: IO_out_int
+    IO_out_string: IO_out_string
+}
+
+type Int {
+    Int_ctr: Int_ctr
+    Int_abort: Object_abort
+    Int_copy: Object_copy
+    Int_type_name: Object_type_name
+}
+
+type Bool {
+    Bool_ctr: Bool_ctr
+    Bool_abort: Object_abort
+    Bool_copy: Object_copy
+    Bool_type_name: Object_type_name
+}
+
+type String {
+    String_ctr: String_ctr
+    String_abort: Object_abort
+    String_copy: Object_copy
+    String_type_name: Object_type_name
+    String_length: String_length
+    String_concat: String_concat
+    String_substr: String_substr
+}
+
+type Book {
+    Book_ctr: Book_ctr
+    Book_abort: Object_abort
+    Book_copy: Object_copy
+    Book_type_name: Object_type_name
+    Book_in_int: Object_in_int
+    Book_in_string: Object_in_string
+    Book_out_int: Object_out_int
+    Book_out_string: Object_out_string
+    Book_initBook: Book_initBook
+    Book_print: Book_print
+}
+
+type Article {
+    Article_ctr: Article_ctr
+    Article_abort: Object_abort
+    Article_copy: Object_copy
+    Article_type_name: Object_type_name
+    Article_in_int: Object_in_int
+    Article_in_string: Object_in_string
+    Article_out_int: Object_out_int
+    Article_out_string: Object_out_string
+    Article_initBook: Object_initBook
+    Article_print: Object_print
+    Article_initArticle: Article_initArticle
+}
+
+type BookList {
+    BookList_ctr: BookList_ctr
+    BookList_abort: Object_abort
+    BookList_copy: Object_copy
+    BookList_type_name: Object_type_name
+    BookList_in_int: Object_in_int
+    BookList_in_string: Object_in_string
+    BookList_out_int: Object_out_int
+    BookList_out_string: Object_out_string
+    BookList_isNil: BookList_isNil
+    BookList_cons: BookList_cons
+    BookList_car: BookList_car
+    BookList_cdr: BookList_cdr
+    BookList_print_list: BookList_print_list
+}
+
+type Cons {
+    Cons_ctr: Cons_ctr
+    Cons_abort: Object_abort
+    Cons_copy: Object_copy
+    Cons_type_name: Object_type_name
+    Cons_in_int: Object_in_int
+    Cons_in_string: Object_in_string
+    Cons_out_int: Object_out_int
+    Cons_out_string: Object_out_string
+    Cons_isNil: Object_isNil
+    Cons_cons: Object_cons
+    Cons_car: Object_car
+    Cons_cdr: Object_cdr
+    Cons_print_list: Object_print_list
+    Cons_init: Cons_init
+}
+
+type Nil {
+    Nil_ctr: Nil_ctr
+    Nil_abort: Object_abort
+    Nil_copy: Object_copy
+    Nil_type_name: Object_type_name
+    Nil_in_int: Object_in_int
+    Nil_in_string: Object_in_string
+    Nil_out_int: Object_out_int
+    Nil_out_string: Object_out_string
+    Nil_isNil: Object_isNil
+    Nil_cons: Object_cons
+    Nil_car: Object_car
+    Nil_cdr: Object_cdr
+    Nil_print_list: Object_print_list
+}
+
+type Main {
+    Main_ctr: Main_ctr
+    Main_abort: Object_abort
+    Main_copy: Object_copy
+    Main_type_name: Object_type_name
+    Main_main: Main_main
+}
+
+.DATA
+data_0 = ''
+data_1 = ''
+data_2 = ''
+data_3 = '\n'
+data_4 = 'title:      '
+data_5 = '\n'
+data_6 = 'author:     '
+data_7 = ''
+data_8 = 'Aho, Sethi, and Ullman'
+data_9 = 'Compilers, Principles, Techniques, and Tools'
+data_10 = 'PC Magazine'
+data_11 = 'Ulanoff'
+data_12 = 'The Top 100 CD_ROMs'
+
+.CODE
+
+function Object_ctr {
+    PARAM self
+    RETURN self
+}
+
+function Object_abort {
+    PARAM self
+}
+
+function Object_copy {
+    PARAM self
+}
+
+function Object_type_name {
+    PARAM self
+}
+
+function IO_ctr {
+    PARAM self
+    RETURN self
+}
+
+function IO_in_int {
+    PARAM self
+}
+
+function IO_in_string {
+    PARAM self
+}
+
+function IO_out_int {
+    PARAM self
+    PARAM arg
+}
+
+function IO_out_string {
+    PARAM self
+    PARAM arg
+}
+
+function Int_ctr {
+    LOCAL 0_ctr_internal
+    PARAM self
+    0_ctr_internal = ALLOCATE Int
+    SETATTR 0_ctr_internal 0 0
+    SETATTR self 0 0_ctr_internal
+    RETURN self
+}
+
+function Bool_ctr {
+    LOCAL 1_ctr_internal
+    PARAM self
+    1_ctr_internal = ALLOCATE Bool
+    SETATTR 1_ctr_internal 0 0
+    SETATTR self 0 1_ctr_internal
+    RETURN self
+}
+
+function String_ctr {
+    LOCAL 2_ctr_internal
+    LOCAL 3_ctr_internal
+    LOCAL 4_ctr_internal
+    PARAM self
+    3_ctr_internal = ALLOCATE Int
+    SETATTR 3_ctr_internal 0 0
+    2_ctr_internal = ALLOCATE String
+    SETATTR 2_ctr_internal 0 3_ctr_internal
+    SETATTR 2_ctr_internal 1 data_0
+    SETATTR self 0 2_ctr_internal
+    4_ctr_internal = ALLOCATE Int
+    SETATTR 4_ctr_internal 0 0
+    SETATTR self 1 4_ctr_internal
+    RETURN self
+}
+
+function String_length {
+    PARAM self
+}
+
+function String_concat {
+    PARAM self
+    PARAM arg
+}
+
+function String_substr {
+    PARAM self
+    PARAM arg1
+    PARAM arg2
+}
+
+function Book_ctr {
+    LOCAL 5_ctr_internal
+    LOCAL 6_ctr_internal
+    LOCAL 7_ctr_internal
+    LOCAL 8_ctr_internal
+    PARAM self
+    6_ctr_internal = ALLOCATE Int
+    SETATTR 6_ctr_internal 0 0
+    5_ctr_internal = ALLOCATE String
+    SETATTR 5_ctr_internal 0 6_ctr_internal
+    SETATTR 5_ctr_internal 1 data_1
+    SETATTR self 0 5_ctr_internal
+    8_ctr_internal = ALLOCATE Int
+    SETATTR 8_ctr_internal 0 0
+    7_ctr_internal = ALLOCATE String
+    SETATTR 7_ctr_internal 0 8_ctr_internal
+    SETATTR 7_ctr_internal 1 data_2
+    SETATTR self 1 7_ctr_internal
+    RETURN self
+}
+
+function Book_initBook {
+    LOCAL 9_initBook_title_p
+    LOCAL 10_initBook_title
+    LOCAL 11_initBook_author_p
+    LOCAL 12_initBook_author
+    PARAM self
+    PARAM title_p
+    PARAM author_p
+    10_initBook_title = 9_initBook_title_p
+    12_initBook_author = 11_initBook_author_p
+    RETURN self
+}
+
+function Book_print {
+    LOCAL 13_print_internal
+    LOCAL 14_print_internal
+    LOCAL 15_print_title
+    LOCAL 16_print_internal
+    LOCAL 17_print_internal
+    LOCAL 18_print_internal
+    LOCAL 19_print_internal
+    LOCAL 20_print_internal
+    LOCAL 21_print_internal
+    LOCAL 22_print_internal
+    LOCAL 23_print_internal
+    LOCAL 24_print_internal
+    LOCAL 25_print_internal
+    LOCAL 26_print_author
+    LOCAL 27_print_internal
+    LOCAL 28_print_internal
+    LOCAL 29_print_internal
+    LOCAL 30_print_internal
+    LOCAL 31_print_internal
+    LOCAL 32_print_internal
+    LOCAL 33_print_internal
+    LOCAL 34_print_internal
+    PARAM self
+    14_print_internal = ALLOCATE Int
+    SETATTR 14_print_internal 0 1
+    13_print_internal = ALLOCATE String
+    SETATTR 13_print_internal 0 14_print_internal
+    SETATTR 13_print_internal 1 data_3
+    ARG 13_print_internal
+    ARG 15_print_title
+    17_print_internal = ALLOCATE Int
+    SETATTR 17_print_internal 0 12
+    16_print_internal = ALLOCATE String
+    SETATTR 16_print_internal 0 17_print_internal
+    SETATTR 16_print_internal 1 data_4
+    ARG 16_print_internal
+    ARG self
+    18_print_internal = TYPEOF self
+    19_print_internal = VCALL 18_print_internal Book_out_string
+    ARG self
+    20_print_internal = TYPEOF 19_print_internal
+    21_print_internal = VCALL 20_print_internal Book_out_string
+    ARG self
+    22_print_internal = TYPEOF 21_print_internal
+    23_print_internal = VCALL 22_print_internal Book_out_string
+    25_print_internal = ALLOCATE Int
+    SETATTR 25_print_internal 0 1
+    24_print_internal = ALLOCATE String
+    SETATTR 24_print_internal 0 25_print_internal
+    SETATTR 24_print_internal 1 data_5
+    ARG 24_print_internal
+    ARG 26_print_author
+    28_print_internal = ALLOCATE Int
+    SETATTR 28_print_internal 0 12
+    27_print_internal = ALLOCATE String
+    SETATTR 27_print_internal 0 28_print_internal
+    SETATTR 27_print_internal 1 data_6
+    ARG 27_print_internal
+    ARG self
+    29_print_internal = TYPEOF self
+    30_print_internal = VCALL 29_print_internal Book_out_string
+    ARG self
+    31_print_internal = TYPEOF 30_print_internal
+    32_print_internal = VCALL 31_print_internal Book_out_string
+    ARG self
+    33_print_internal = TYPEOF 32_print_internal
+    34_print_internal = VCALL 33_print_internal Book_out_string
+    RETURN self
+}
+
+function Article_ctr {
+    LOCAL 35_ctr_internal
+    LOCAL 36_ctr_internal
+    PARAM self
+    36_ctr_internal = ALLOCATE Int
+    SETATTR 36_ctr_internal 0 0
+    35_ctr_internal = ALLOCATE String
+    SETATTR 35_ctr_internal 0 36_ctr_internal
+    SETATTR 35_ctr_internal 1 data_7
+    SETATTR self 0 35_ctr_internal
+    RETURN self
+}
+
+function Article_initArticle {
+    LOCAL 37_initArticle_author_p
+    LOCAL 38_initArticle_title_p
+    LOCAL 39_initArticle_internal
+    LOCAL 40_initArticle_internal
+    LOCAL 41_initArticle_per_title_p
+    LOCAL 42_initArticle_per_title
+    PARAM self
+    PARAM title_p
+    PARAM author_p
+    PARAM per_title_p
+    ARG 37_initArticle_author_p
+    ARG 38_initArticle_title_p
+    ARG self
+    39_initArticle_internal = TYPEOF self
+    40_initArticle_internal = VCALL 39_initArticle_internal Article_initBook
+    42_initArticle_per_title = 41_initArticle_per_title_p
+    RETURN self
+}
+
+function BookList_ctr {
+    PARAM self
+    RETURN self
+}
+
+function BookList_isNil {
+    LOCAL 43_isNil_internal
+    LOCAL 44_isNil_internal
+    LOCAL 45_isNil_internal
+    PARAM self
+    ARG self
+    43_isNil_internal = TYPEOF self
+    44_isNil_internal = VCALL 43_isNil_internal BookList_abort
+    45_isNil_internal = ALLOCATE Bool
+    SETATTR 45_isNil_internal 0 1
+    RETURN 45_isNil_internal
+}
+
+function BookList_cons {
+    LOCAL 46_cons_new_cell
+    LOCAL 47_cons_internal
+    LOCAL 48_cons_hd
+    LOCAL 49_cons_internal
+    LOCAL 50_cons_internal
+    PARAM self
+    PARAM hd
+    47_cons_internal = ALLOCATE Cons
+    ARG self
+    47_cons_internal = CALL Cons_ctr
+    46_cons_new_cell = 47_cons_internal
+    ARG self
+    ARG 48_cons_hd
+    ARG self
+    49_cons_internal = TYPEOF 46_cons_new_cell
+    50_cons_internal = VCALL 49_cons_internal Cons_init
+    RETURN 50_cons_internal
+}
+
+function BookList_car {
+    LOCAL 51_car_internal
+    LOCAL 52_car_internal
+    LOCAL 53_car_internal
+    PARAM self
+    ARG self
+    51_car_internal = TYPEOF self
+    52_car_internal = VCALL 51_car_internal Nil_abort
+    53_car_internal = ALLOCATE Book
+    ARG self
+    53_car_internal = CALL Book_ctr
+    RETURN 53_car_internal
+}
+
+function BookList_cdr {
+    LOCAL 54_cdr_internal
+    LOCAL 55_cdr_internal
+    LOCAL 56_cdr_internal
+    PARAM self
+    ARG self
+    54_cdr_internal = TYPEOF self
+    55_cdr_internal = VCALL 54_cdr_internal Nil_abort
+    56_cdr_internal = ALLOCATE BookList
+    ARG self
+    56_cdr_internal = CALL BookList_ctr
+    RETURN 56_cdr_internal
+}
+
+function BookList_print_list {
+    LOCAL 57_print_list_internal
+    LOCAL 58_print_list_internal
+    PARAM self
+    ARG self
+    57_print_list_internal = TYPEOF self
+    58_print_list_internal = VCALL 57_print_list_internal BookList_abort
+    RETURN 58_print_list_internal
+}
+
+function Cons_ctr {
+    PARAM self
+    SETATTR self 0 void
+    SETATTR self 1 void
+    RETURN self
+}
+
+function Cons_init {
+    LOCAL 59_init_hd
+    LOCAL 60_init_xcar
+    LOCAL 61_init_tl
+    LOCAL 62_init_xcdr
+    PARAM self
+    PARAM hd
+    PARAM tl
+    60_init_xcar = 59_init_hd
+    62_init_xcdr = 61_init_tl
+    RETURN self
+}
+
+function Nil_ctr {
+    PARAM self
+    RETURN self
+}
+
+function Main_ctr {
+    PARAM self
+    SETATTR self 0 void
+    RETURN self
+}
+
+function Main_main {
+    LOCAL 63_main_a_book
+    LOCAL 64_main_internal
+    LOCAL 65_main_internal
+    LOCAL 66_main_internal
+    LOCAL 67_main_internal
+    LOCAL 68_main_internal
+    LOCAL 69_main_internal
+    LOCAL 70_main_internal
+    LOCAL 71_main_an_article
+    LOCAL 72_main_internal
+    LOCAL 73_main_internal
+    LOCAL 74_main_internal
+    LOCAL 75_main_internal
+    LOCAL 76_main_internal
+    LOCAL 77_main_internal
+    LOCAL 78_main_internal
+    LOCAL 79_main_internal
+    LOCAL 80_main_internal
+    LOCAL 81_main_internal
+    LOCAL 82_main_internal
+    LOCAL 83_main_internal
+    LOCAL 84_main_internal
+    LOCAL 85_main_internal
+    LOCAL 86_main_books
+    LOCAL 87_main_internal
+    LOCAL 88_main_internal
+    PARAM self
+    65_main_internal = ALLOCATE Int
+    SETATTR 65_main_internal 0 22
+    64_main_internal = ALLOCATE String
+    SETATTR 64_main_internal 0 65_main_internal
+    SETATTR 64_main_internal 1 data_8
+    ARG 64_main_internal
+    67_main_internal = ALLOCATE Int
+    SETATTR 67_main_internal 0 44
+    66_main_internal = ALLOCATE String
+    SETATTR 66_main_internal 0 67_main_internal
+    SETATTR 66_main_internal 1 data_9
+    ARG 66_main_internal
+    68_main_internal = ALLOCATE Book
+    ARG self
+    68_main_internal = CALL Book_ctr
+    ARG self
+    69_main_internal = TYPEOF 68_main_internal
+    70_main_internal = VCALL 69_main_internal Book_initBook
+    63_main_a_book = 70_main_internal
+    73_main_internal = ALLOCATE Int
+    SETATTR 73_main_internal 0 11
+    72_main_internal = ALLOCATE String
+    SETATTR 72_main_internal 0 73_main_internal
+    SETATTR 72_main_internal 1 data_10
+    ARG 72_main_internal
+    75_main_internal = ALLOCATE Int
+    SETATTR 75_main_internal 0 7
+    74_main_internal = ALLOCATE String
+    SETATTR 74_main_internal 0 75_main_internal
+    SETATTR 74_main_internal 1 data_11
+    ARG 74_main_internal
+    77_main_internal = ALLOCATE Int
+    SETATTR 77_main_internal 0 19
+    76_main_internal = ALLOCATE String
+    SETATTR 76_main_internal 0 77_main_internal
+    SETATTR 76_main_internal 1 data_12
+    ARG 76_main_internal
+    78_main_internal = ALLOCATE Article
+    ARG self
+    78_main_internal = CALL Article_ctr
+    ARG self
+    79_main_internal = TYPEOF 78_main_internal
+    80_main_internal = VCALL 79_main_internal Article_initArticle
+    71_main_an_article = 80_main_internal
+    ARG 71_main_an_article
+    ARG 63_main_a_book
+    81_main_internal = ALLOCATE Nil
+    ARG self
+    81_main_internal = CALL Nil_ctr
+    ARG self
+    82_main_internal = TYPEOF 81_main_internal
+    83_main_internal = VCALL 82_main_internal Nil_cons
+    ARG self
+    84_main_internal = TYPEOF 83_main_internal
+    85_main_internal = VCALL 84_main_internal Cons_cons
+    86_main_books = 85_main_internal
+    ARG self
+    87_main_internal = TYPEOF 86_main_books
+    88_main_internal = VCALL 87_main_internal BookList_print_list
+    RETURN 88_main_internal
+}
+
+function main {
+    LOCAL 89_main_instance
+    LOCAL 90_main_internal
+    89_main_instance = ALLOCATE Main
+    ARG 89_main_instance
+    89_main_instance = CALL Main_ctr
+    ARG 89_main_instance
+    90_main_internal = VCALL Main Main_main
+    RETURN 0
+}

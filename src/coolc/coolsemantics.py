@@ -231,6 +231,9 @@ class SemanticVisitor:
         method = self.__scope.get_type(
             node.instance.return_type).get_method(node.method, self.__scope)
 
+        # print(node.instance.return_type)
+        # print(method)
+
         if method is None:
             valid = False
             errors.append('Class <%s> not contain method <%s>.' %

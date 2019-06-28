@@ -37,10 +37,12 @@ class CILFunction(CILNode):
         self.instructions = instructions
         self.localvars = []
         self.param_count = 0
+        self.holder = -1
 
 class CILMethod(CILNode):
     def __init__(self, mname):
         self.mname = mname
+        self.holder = -1
 
 
 class CILParam(CILNode):

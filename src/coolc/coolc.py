@@ -82,9 +82,16 @@ class Compiler:
         for step in self.steps:
             step()
 
+        fixed = []
+        for item in self.result:
+            if isinstance(item, list):
+                fixed.append(''.join(item))
+            else:
+                fixed.append(item)
+                
         with open(self.output, 'w') as fd:
             # print(self.result)
-            fd.write('\n'.join(self.result))
+            fd.write('\n'.join(fixed))
 
     def lexing(self):
         # Lexing
@@ -181,7 +188,8 @@ class Compiler:
 
         cil_emitter = cilemitter.CILWriterVisitor(cil_visitor.context)
         cil_emitter.visit(cil_visitor.result)
-        with open(f'test/{self.program[10:-3]}.cil', 'w') as fd:
+        filename = self.program.split('.')[0]
+        with open(f'{filename}.cil', 'w') as fd:
             fd.write('\n'.join(cil_emitter.output))
 
         mips_visitor = cil2mips.Cil2MipsVisitor(cil_visitor.context)

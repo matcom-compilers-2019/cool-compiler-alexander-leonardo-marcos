@@ -1,0 +1,2309 @@
+.TYPES
+
+type Object {
+    Object_ctr: Object_ctr
+    Object_abort: Object_abort
+    Object_copy: Object_copy
+    Object_type_name: Object_type_name
+}
+
+type IO {
+    IO_ctr: IO_ctr
+    IO_abort: Object_abort
+    IO_copy: Object_copy
+    IO_type_name: Object_type_name
+    IO_in_int: IO_in_int
+    IO_in_string: IO_in_string
+    IO_out_int: IO_out_int
+    IO_out_string: IO_out_string
+}
+
+type Int {
+    Int_ctr: Int_ctr
+    Int_abort: Object_abort
+    Int_copy: Object_copy
+    Int_type_name: Object_type_name
+}
+
+type Bool {
+    Bool_ctr: Bool_ctr
+    Bool_abort: Object_abort
+    Bool_copy: Object_copy
+    Bool_type_name: Object_type_name
+}
+
+type String {
+    String_ctr: String_ctr
+    String_abort: Object_abort
+    String_copy: Object_copy
+    String_type_name: Object_type_name
+    String_length: String_length
+    String_concat: String_concat
+    String_substr: String_substr
+}
+
+type A {
+    A_ctr: A_ctr
+    A_abort: Object_abort
+    A_copy: Object_copy
+    A_type_name: Object_type_name
+    A_value: A_value
+    A_set_var: A_set_var
+    A_method1: A_method1
+    A_method2: A_method2
+    A_method3: A_method3
+    A_method4: A_method4
+    A_method5: A_method5
+}
+
+type B {
+    B_ctr: B_ctr
+    B_abort: Object_abort
+    B_copy: Object_copy
+    B_type_name: Object_type_name
+    B_value: Object_value
+    B_set_var: Object_set_var
+    B_method1: Object_method1
+    B_method2: Object_method2
+    B_method3: Object_method3
+    B_method4: Object_method4
+    B_method5: Object_method5
+}
+
+type C {
+    C_ctr: C_ctr
+    C_abort: Object_abort
+    C_copy: Object_copy
+    C_type_name: Object_type_name
+    C_value: Object_value
+    C_set_var: Object_set_var
+    C_method1: Object_method1
+    C_method2: Object_method2
+    C_method3: Object_method3
+    C_method4: Object_method4
+    C_method5: Object_method5
+    C_method6: C_method6
+}
+
+type D {
+    D_ctr: D_ctr
+    D_abort: Object_abort
+    D_copy: Object_copy
+    D_type_name: Object_type_name
+    D_value: Object_value
+    D_set_var: Object_set_var
+    D_method1: Object_method1
+    D_method2: Object_method2
+    D_method3: Object_method3
+    D_method4: Object_method4
+    D_method5: Object_method5
+    D_method7: D_method7
+}
+
+type E {
+    E_ctr: E_ctr
+    E_abort: Object_abort
+    E_copy: Object_copy
+    E_type_name: Object_type_name
+    E_value: Object_value
+    E_set_var: Object_set_var
+    E_method1: Object_method1
+    E_method2: Object_method2
+    E_method3: Object_method3
+    E_method4: Object_method4
+    E_method5: Object_method5
+    E_method7: Object_method7
+    E_method6: E_method6
+}
+
+type A2I {
+    A2I_ctr: A2I_ctr
+    A2I_abort: Object_abort
+    A2I_copy: Object_copy
+    A2I_type_name: Object_type_name
+    A2I_c2i: A2I_c2i
+    A2I_i2c: A2I_i2c
+    A2I_a2i: A2I_a2i
+    A2I_a2i_aux: A2I_a2i_aux
+    A2I_i2a: A2I_i2a
+    A2I_i2a_aux: A2I_i2a_aux
+}
+
+type Main {
+    Main_ctr: Main_ctr
+    Main_abort: Object_abort
+    Main_copy: Object_copy
+    Main_type_name: Object_type_name
+    Main_in_int: Object_in_int
+    Main_in_string: Object_in_string
+    Main_out_int: Object_out_int
+    Main_out_string: Object_out_string
+    Main_menu: Main_menu
+    Main_prompt: Main_prompt
+    Main_get_int: Main_get_int
+    Main_is_even: Main_is_even
+    Main_class_type: Main_class_type
+    Main_print: Main_print
+    Main_main: Main_main
+}
+
+.DATA
+data_0 = ''
+data_1 = '0'
+data_2 = '1'
+data_3 = '2'
+data_4 = '3'
+data_5 = '4'
+data_6 = '5'
+data_7 = '6'
+data_8 = '7'
+data_9 = '8'
+data_10 = '9'
+data_11 = ''
+data_12 = '9'
+data_13 = '8'
+data_14 = '7'
+data_15 = '6'
+data_16 = '5'
+data_17 = '4'
+data_18 = '3'
+data_19 = '2'
+data_20 = '1'
+data_21 = '0'
+data_22 = '-'
+data_23 = '+'
+data_24 = '-'
+data_25 = '0'
+data_26 = ''
+data_27 = ''
+data_28 = '\n\tTo add a number to '
+data_29 = '...enter a:\n'
+data_30 = '\tTo negate '
+data_31 = '...enter b:\n'
+data_32 = '\tTo find the difference between '
+data_33 = 'and another number...enter c:\n'
+data_34 = '\tTo find the factorial of '
+data_35 = '...enter d:\n'
+data_36 = '\tTo square '
+data_37 = '...enter e:\n'
+data_38 = '\tTo cube '
+data_39 = '...enter f:\n'
+data_40 = '\tTo find out if '
+data_41 = 'is a multiple of 3...enter g:\n'
+data_42 = '\tTo divide '
+data_43 = 'by 8...enter h:\n'
+data_44 = '\tTo get a new number...enter j:\n'
+data_45 = '\tTo quit...enter q:\n\n'
+data_46 = '\n'
+data_47 = 'Please enter a number...  '
+data_48 = ' '
+data_49 = 'number '
+data_50 = 'is odd!\n'
+data_51 = 'is even!\n'
+data_52 = 'a'
+data_53 = 'b'
+data_54 = 'c'
+data_55 = 'd'
+data_56 = 'e'
+data_57 = 'f'
+data_58 = 'g'
+data_59 = 'h'
+data_60 = 'j'
+data_61 = 'q'
+data_62 = 'number '
+data_63 = 'is equal to '
+data_64 = 'times 8 with a remainder of '
+data_65 = '\n'
+data_66 = 'number '
+data_67 = 'is not divisible by 3.\n'
+data_68 = 'number '
+data_69 = 'is divisible by 3.\n'
+
+.CODE
+
+function Object_ctr {
+    PARAM self
+    RETURN self
+}
+
+function Object_abort {
+    PARAM self
+}
+
+function Object_copy {
+    PARAM self
+}
+
+function Object_type_name {
+    PARAM self
+}
+
+function IO_ctr {
+    PARAM self
+    RETURN self
+}
+
+function IO_in_int {
+    PARAM self
+}
+
+function IO_in_string {
+    PARAM self
+}
+
+function IO_out_int {
+    PARAM self
+    PARAM arg
+}
+
+function IO_out_string {
+    PARAM self
+    PARAM arg
+}
+
+function Int_ctr {
+    LOCAL 0_ctr_internal
+    PARAM self
+    0_ctr_internal = ALLOCATE Int
+    SETATTR 0_ctr_internal 0 0
+    SETATTR self 0 0_ctr_internal
+    RETURN self
+}
+
+function Bool_ctr {
+    LOCAL 1_ctr_internal
+    PARAM self
+    1_ctr_internal = ALLOCATE Bool
+    SETATTR 1_ctr_internal 0 0
+    SETATTR self 0 1_ctr_internal
+    RETURN self
+}
+
+function String_ctr {
+    LOCAL 2_ctr_internal
+    LOCAL 3_ctr_internal
+    LOCAL 4_ctr_internal
+    PARAM self
+    3_ctr_internal = ALLOCATE Int
+    SETATTR 3_ctr_internal 0 0
+    2_ctr_internal = ALLOCATE String
+    SETATTR 2_ctr_internal 0 3_ctr_internal
+    SETATTR 2_ctr_internal 1 data_0
+    SETATTR self 0 2_ctr_internal
+    4_ctr_internal = ALLOCATE Int
+    SETATTR 4_ctr_internal 0 0
+    SETATTR self 1 4_ctr_internal
+    RETURN self
+}
+
+function String_length {
+    PARAM self
+}
+
+function String_concat {
+    PARAM self
+    PARAM arg
+}
+
+function String_substr {
+    PARAM self
+    PARAM arg1
+    PARAM arg2
+}
+
+function A_ctr {
+    LOCAL 5_ctr_internal
+    PARAM self
+    5_ctr_internal = ALLOCATE Int
+    SETATTR 5_ctr_internal 0 0
+    SETATTR self 0 5_ctr_internal
+    RETURN self
+}
+
+function A_value {
+    LOCAL 6_value_var
+    PARAM self
+    RETURN 6_value_var
+}
+
+function A_set_var {
+    LOCAL 7_set_var_num
+    LOCAL 8_set_var_var
+    PARAM self
+    PARAM num
+    8_set_var_var = 7_set_var_num
+    RETURN self
+}
+
+function A_method1 {
+    PARAM self
+    PARAM num
+    RETURN self
+}
+
+function A_method2 {
+    LOCAL 9_method2_x
+    LOCAL 10_method2_internal
+    LOCAL 11_method2_num1
+    LOCAL 12_method2_num2
+    LOCAL 13_method2_internal
+    LOCAL 14_method2_internal
+    LOCAL 15_method2_internal
+    LOCAL 16_method2_internal
+    PARAM self
+    PARAM num1
+    PARAM num2
+    10_method2_internal = ALLOCATE Int
+    SETATTR 10_method2_internal 0 0
+    9_method2_x = 10_method2_internal
+    13_method2_internal = 11_method2_num1 + 12_method2_num2
+    9_method2_x = 13_method2_internal
+    ARG 9_method2_x
+    14_method2_internal = ALLOCATE B
+    ARG self
+    14_method2_internal = CALL B_ctr
+    ARG self
+    15_method2_internal = TYPEOF 14_method2_internal
+    16_method2_internal = VCALL 15_method2_internal B_set_var
+    RETURN 16_method2_internal
+}
+
+function A_method3 {
+    LOCAL 17_method3_x
+    LOCAL 18_method3_internal
+    LOCAL 19_method3_num
+    LOCAL 20_method3_internal
+    LOCAL 21_method3_internal
+    LOCAL 22_method3_internal
+    LOCAL 23_method3_internal
+    PARAM self
+    PARAM num
+    18_method3_internal = ALLOCATE Int
+    SETATTR 18_method3_internal 0 0
+    17_method3_x = 18_method3_internal
+    20_method3_internal = 0 - 19_method3_num
+    17_method3_x = 20_method3_internal
+    ARG 17_method3_x
+    21_method3_internal = ALLOCATE C
+    ARG self
+    21_method3_internal = CALL C_ctr
+    ARG self
+    22_method3_internal = TYPEOF 21_method3_internal
+    23_method3_internal = VCALL 22_method3_internal C_set_var
+    RETURN 23_method3_internal
+}
+
+function A_method4 {
+    LOCAL 24_method4_num2
+    LOCAL 25_method4_num1
+    LOCAL 26_method4_internal
+    LOCAL 27_method4_x
+    LOCAL 28_method4_internal
+    LOCAL 29_method4_internal
+    LOCAL 30_method4_internal
+    LOCAL 31_method4_internal
+    LOCAL 32_method4_internal
+    LOCAL 33_method4_internal
+    LOCAL 34_method4_internal
+    LOCAL 35_method4_internal
+    LOCAL 36_method4_internal
+    LOCAL 37_method4_internal
+    PARAM self
+    PARAM num1
+    PARAM num2
+    IF [] GOTO 0_LABEL
+    28_method4_internal = ALLOCATE Int
+    SETATTR 28_method4_internal 0 0
+    27_method4_x = 28_method4_internal
+    29_method4_internal = 24_method4_num2 - 25_method4_num1
+    27_method4_x = 29_method4_internal
+    ARG 27_method4_x
+    30_method4_internal = ALLOCATE D
+    ARG self
+    30_method4_internal = CALL D_ctr
+    ARG self
+    31_method4_internal = TYPEOF 30_method4_internal
+    32_method4_internal = VCALL 31_method4_internal D_set_var
+    GOTO 1_LABEL
+    LABEL 0_LABEL
+    33_method4_internal = ALLOCATE Int
+    SETATTR 33_method4_internal 0 0
+    27_method4_x = 33_method4_internal
+    34_method4_internal = 25_method4_num1 - 24_method4_num2
+    27_method4_x = 34_method4_internal
+    ARG 27_method4_x
+    35_method4_internal = ALLOCATE D
+    ARG self
+    35_method4_internal = CALL D_ctr
+    ARG self
+    36_method4_internal = TYPEOF 35_method4_internal
+    37_method4_internal = VCALL 36_method4_internal D_set_var
+    LABEL 1_LABEL
+    RETURN 
+}
+
+function A_method5 {
+    LOCAL 38_method5_x
+    LOCAL 39_method5_internal
+    LOCAL 40_method5_y
+    LOCAL 41_method5_internal
+    LOCAL 42_method5_num
+    LOCAL 43_method5_internal
+    LOCAL 44_method5_internal
+    LOCAL 45_method5_internal
+    LOCAL 46_method5_internal
+    LOCAL 47_method5_internal
+    LOCAL 48_method5_internal
+    LOCAL 49_method5_internal
+    PARAM self
+    PARAM num
+    39_method5_internal = ALLOCATE Int
+    SETATTR 39_method5_internal 0 1
+    38_method5_x = 39_method5_internal
+    41_method5_internal = ALLOCATE Int
+    SETATTR 41_method5_internal 0 1
+    40_method5_y = 41_method5_internal
+    LABEL 2_LABEL
+    IF [] GOTO 3_LABEL
+    GOTO 4_LABEL
+    LABEL 3_LABEL
+    44_method5_internal = 38_method5_x * 40_method5_y
+    38_method5_x = 44_method5_internal
+    45_method5_internal = ALLOCATE Int
+    SETATTR 45_method5_internal 0 1
+    46_method5_internal = 40_method5_y + 45_method5_internal
+    40_method5_y = 46_method5_internal
+    GOTO 2_LABEL
+    LABEL 4_LABEL
+    ARG 38_method5_x
+    47_method5_internal = ALLOCATE E
+    ARG self
+    47_method5_internal = CALL E_ctr
+    ARG self
+    48_method5_internal = TYPEOF 47_method5_internal
+    49_method5_internal = VCALL 48_method5_internal E_set_var
+    RETURN 49_method5_internal
+}
+
+function B_ctr {
+    PARAM self
+    RETURN self
+}
+
+function C_ctr {
+    PARAM self
+    RETURN self
+}
+
+function C_method6 {
+    LOCAL 50_method6_x
+    LOCAL 51_method6_internal
+    LOCAL 52_method6_num
+    LOCAL 53_method6_internal
+    LOCAL 54_method6_internal
+    LOCAL 55_method6_internal
+    LOCAL 56_method6_internal
+    PARAM self
+    PARAM num
+    51_method6_internal = ALLOCATE Int
+    SETATTR 51_method6_internal 0 0
+    50_method6_x = 51_method6_internal
+    53_method6_internal = 0 - 52_method6_num
+    50_method6_x = 53_method6_internal
+    ARG 50_method6_x
+    54_method6_internal = ALLOCATE A
+    ARG self
+    54_method6_internal = CALL A_ctr
+    ARG self
+    55_method6_internal = TYPEOF 54_method6_internal
+    56_method6_internal = VCALL 55_method6_internal A_set_var
+    RETURN 56_method6_internal
+}
+
+function D_ctr {
+    PARAM self
+    RETURN self
+}
+
+function D_method7 {
+    LOCAL 57_method7_x
+    LOCAL 58_method7_num
+    LOCAL 59_method7_internal
+    LOCAL 60_method7_internal
+    LOCAL 61_method7_internal
+    LOCAL 62_method7_internal
+    LOCAL 63_method7_internal
+    LOCAL 64_method7_internal
+    LOCAL 65_method7_internal
+    LOCAL 66_method7_internal
+    LOCAL 67_method7_internal
+    LOCAL 68_method7_internal
+    LOCAL 69_method7_internal
+    LOCAL 70_method7_internal
+    LOCAL 71_method7_internal
+    LOCAL 72_method7_internal
+    LOCAL 73_method7_internal
+    LOCAL 74_method7_internal
+    LOCAL 75_method7_internal
+    LOCAL 76_method7_internal
+    PARAM self
+    PARAM num
+    57_method7_x = 58_method7_num
+    59_method7_internal = ALLOCATE Int
+    SETATTR 59_method7_internal 0 0
+    IF [] GOTO 5_LABEL
+    61_method7_internal = ALLOCATE Int
+    SETATTR 61_method7_internal 0 0
+    IF [] GOTO 7_LABEL
+    63_method7_internal = ALLOCATE Int
+    SETATTR 63_method7_internal 0 1
+    IF [] GOTO 9_LABEL
+    65_method7_internal = ALLOCATE Int
+    SETATTR 65_method7_internal 0 2
+    IF [] GOTO 11_LABEL
+    67_method7_internal = ALLOCATE Int
+    SETATTR 67_method7_internal 0 3
+    68_method7_internal = 57_method7_x - 67_method7_internal
+    ARG 68_method7_internal
+    ARG self
+    69_method7_internal = TYPEOF self
+    70_method7_internal = VCALL 69_method7_internal E_method7
+    GOTO 12_LABEL
+    LABEL 11_LABEL
+    71_method7_internal = ALLOCATE Bool
+    SETATTR 71_method7_internal 0 0
+    LABEL 12_LABEL
+    GOTO 10_LABEL
+    LABEL 9_LABEL
+    72_method7_internal = ALLOCATE Bool
+    SETATTR 72_method7_internal 0 0
+    LABEL 10_LABEL
+    GOTO 8_LABEL
+    LABEL 7_LABEL
+    73_method7_internal = ALLOCATE Bool
+    SETATTR 73_method7_internal 0 1
+    LABEL 8_LABEL
+    GOTO 6_LABEL
+    LABEL 5_LABEL
+    74_method7_internal = 0 - 57_method7_x
+    ARG 74_method7_internal
+    ARG self
+    75_method7_internal = TYPEOF self
+    76_method7_internal = VCALL 75_method7_internal E_method7
+    LABEL 6_LABEL
+    RETURN 
+}
+
+function E_ctr {
+    PARAM self
+    RETURN self
+}
+
+function E_method6 {
+    LOCAL 77_method6_x
+    LOCAL 78_method6_internal
+    LOCAL 79_method6_num
+    LOCAL 80_method6_internal
+    LOCAL 81_method6_internal
+    LOCAL 82_method6_internal
+    LOCAL 83_method6_internal
+    LOCAL 84_method6_internal
+    PARAM self
+    PARAM num
+    78_method6_internal = ALLOCATE Int
+    SETATTR 78_method6_internal 0 0
+    77_method6_x = 78_method6_internal
+    80_method6_internal = ALLOCATE Int
+    SETATTR 80_method6_internal 0 8
+    81_method6_internal = 79_method6_num / 80_method6_internal
+    77_method6_x = 81_method6_internal
+    ARG 77_method6_x
+    82_method6_internal = ALLOCATE A
+    ARG self
+    82_method6_internal = CALL A_ctr
+    ARG self
+    83_method6_internal = TYPEOF 82_method6_internal
+    84_method6_internal = VCALL 83_method6_internal A_set_var
+    RETURN 84_method6_internal
+}
+
+function A2I_ctr {
+    PARAM self
+    RETURN self
+}
+
+function A2I_c2i {
+    LOCAL 85_c2i_char
+    LOCAL 86_c2i_internal
+    LOCAL 87_c2i_internal
+    LOCAL 88_c2i_internal
+    LOCAL 89_c2i_internal
+    LOCAL 90_c2i_internal
+    LOCAL 91_c2i_internal
+    LOCAL 92_c2i_internal
+    LOCAL 93_c2i_internal
+    LOCAL 94_c2i_internal
+    LOCAL 95_c2i_internal
+    LOCAL 96_c2i_internal
+    LOCAL 97_c2i_internal
+    LOCAL 98_c2i_internal
+    LOCAL 99_c2i_internal
+    LOCAL 100_c2i_internal
+    LOCAL 101_c2i_internal
+    LOCAL 102_c2i_internal
+    LOCAL 103_c2i_internal
+    LOCAL 104_c2i_internal
+    LOCAL 105_c2i_internal
+    LOCAL 106_c2i_internal
+    LOCAL 107_c2i_internal
+    LOCAL 108_c2i_internal
+    LOCAL 109_c2i_internal
+    LOCAL 110_c2i_internal
+    LOCAL 111_c2i_internal
+    LOCAL 112_c2i_internal
+    LOCAL 113_c2i_internal
+    LOCAL 114_c2i_internal
+    LOCAL 115_c2i_internal
+    LOCAL 116_c2i_internal
+    LOCAL 117_c2i_internal
+    LOCAL 118_c2i_internal
+    LOCAL 119_c2i_internal
+    LOCAL 120_c2i_internal
+    LOCAL 121_c2i_internal
+    LOCAL 122_c2i_internal
+    LOCAL 123_c2i_internal
+    LOCAL 124_c2i_internal
+    LOCAL 125_c2i_internal
+    LOCAL 126_c2i_internal
+    LOCAL 127_c2i_internal
+    LOCAL 128_c2i_internal
+    PARAM self
+    PARAM char
+    87_c2i_internal = ALLOCATE Int
+    SETATTR 87_c2i_internal 0 1
+    86_c2i_internal = ALLOCATE String
+    SETATTR 86_c2i_internal 0 87_c2i_internal
+    SETATTR 86_c2i_internal 1 data_1
+    IF [] GOTO 13_LABEL
+    90_c2i_internal = ALLOCATE Int
+    SETATTR 90_c2i_internal 0 1
+    89_c2i_internal = ALLOCATE String
+    SETATTR 89_c2i_internal 0 90_c2i_internal
+    SETATTR 89_c2i_internal 1 data_2
+    IF [] GOTO 15_LABEL
+    93_c2i_internal = ALLOCATE Int
+    SETATTR 93_c2i_internal 0 1
+    92_c2i_internal = ALLOCATE String
+    SETATTR 92_c2i_internal 0 93_c2i_internal
+    SETATTR 92_c2i_internal 1 data_3
+    IF [] GOTO 17_LABEL
+    96_c2i_internal = ALLOCATE Int
+    SETATTR 96_c2i_internal 0 1
+    95_c2i_internal = ALLOCATE String
+    SETATTR 95_c2i_internal 0 96_c2i_internal
+    SETATTR 95_c2i_internal 1 data_4
+    IF [] GOTO 19_LABEL
+    99_c2i_internal = ALLOCATE Int
+    SETATTR 99_c2i_internal 0 1
+    98_c2i_internal = ALLOCATE String
+    SETATTR 98_c2i_internal 0 99_c2i_internal
+    SETATTR 98_c2i_internal 1 data_5
+    IF [] GOTO 21_LABEL
+    102_c2i_internal = ALLOCATE Int
+    SETATTR 102_c2i_internal 0 1
+    101_c2i_internal = ALLOCATE String
+    SETATTR 101_c2i_internal 0 102_c2i_internal
+    SETATTR 101_c2i_internal 1 data_6
+    IF [] GOTO 23_LABEL
+    105_c2i_internal = ALLOCATE Int
+    SETATTR 105_c2i_internal 0 1
+    104_c2i_internal = ALLOCATE String
+    SETATTR 104_c2i_internal 0 105_c2i_internal
+    SETATTR 104_c2i_internal 1 data_7
+    IF [] GOTO 25_LABEL
+    108_c2i_internal = ALLOCATE Int
+    SETATTR 108_c2i_internal 0 1
+    107_c2i_internal = ALLOCATE String
+    SETATTR 107_c2i_internal 0 108_c2i_internal
+    SETATTR 107_c2i_internal 1 data_8
+    IF [] GOTO 27_LABEL
+    111_c2i_internal = ALLOCATE Int
+    SETATTR 111_c2i_internal 0 1
+    110_c2i_internal = ALLOCATE String
+    SETATTR 110_c2i_internal 0 111_c2i_internal
+    SETATTR 110_c2i_internal 1 data_9
+    IF [] GOTO 29_LABEL
+    114_c2i_internal = ALLOCATE Int
+    SETATTR 114_c2i_internal 0 1
+    113_c2i_internal = ALLOCATE String
+    SETATTR 113_c2i_internal 0 114_c2i_internal
+    SETATTR 113_c2i_internal 1 data_10
+    IF [] GOTO 31_LABEL
+    ARG self
+    116_c2i_internal = TYPEOF self
+    117_c2i_internal = VCALL 116_c2i_internal A2I_abort
+    118_c2i_internal = ALLOCATE Int
+    SETATTR 118_c2i_internal 0 0
+    GOTO 32_LABEL
+    LABEL 31_LABEL
+    119_c2i_internal = ALLOCATE Int
+    SETATTR 119_c2i_internal 0 9
+    LABEL 32_LABEL
+    GOTO 30_LABEL
+    LABEL 29_LABEL
+    120_c2i_internal = ALLOCATE Int
+    SETATTR 120_c2i_internal 0 8
+    LABEL 30_LABEL
+    GOTO 28_LABEL
+    LABEL 27_LABEL
+    121_c2i_internal = ALLOCATE Int
+    SETATTR 121_c2i_internal 0 7
+    LABEL 28_LABEL
+    GOTO 26_LABEL
+    LABEL 25_LABEL
+    122_c2i_internal = ALLOCATE Int
+    SETATTR 122_c2i_internal 0 6
+    LABEL 26_LABEL
+    GOTO 24_LABEL
+    LABEL 23_LABEL
+    123_c2i_internal = ALLOCATE Int
+    SETATTR 123_c2i_internal 0 5
+    LABEL 24_LABEL
+    GOTO 22_LABEL
+    LABEL 21_LABEL
+    124_c2i_internal = ALLOCATE Int
+    SETATTR 124_c2i_internal 0 4
+    LABEL 22_LABEL
+    GOTO 20_LABEL
+    LABEL 19_LABEL
+    125_c2i_internal = ALLOCATE Int
+    SETATTR 125_c2i_internal 0 3
+    LABEL 20_LABEL
+    GOTO 18_LABEL
+    LABEL 17_LABEL
+    126_c2i_internal = ALLOCATE Int
+    SETATTR 126_c2i_internal 0 2
+    LABEL 18_LABEL
+    GOTO 16_LABEL
+    LABEL 15_LABEL
+    127_c2i_internal = ALLOCATE Int
+    SETATTR 127_c2i_internal 0 1
+    LABEL 16_LABEL
+    GOTO 14_LABEL
+    LABEL 13_LABEL
+    128_c2i_internal = ALLOCATE Int
+    SETATTR 128_c2i_internal 0 0
+    LABEL 14_LABEL
+    RETURN 
+}
+
+function A2I_i2c {
+    LOCAL 129_i2c_i
+    LOCAL 130_i2c_internal
+    LOCAL 131_i2c_internal
+    LOCAL 132_i2c_internal
+    LOCAL 133_i2c_internal
+    LOCAL 134_i2c_internal
+    LOCAL 135_i2c_internal
+    LOCAL 136_i2c_internal
+    LOCAL 137_i2c_internal
+    LOCAL 138_i2c_internal
+    LOCAL 139_i2c_internal
+    LOCAL 140_i2c_internal
+    LOCAL 141_i2c_internal
+    LOCAL 142_i2c_internal
+    LOCAL 143_i2c_internal
+    LOCAL 144_i2c_internal
+    LOCAL 145_i2c_internal
+    LOCAL 146_i2c_internal
+    LOCAL 147_i2c_internal
+    LOCAL 148_i2c_internal
+    LOCAL 149_i2c_internal
+    LOCAL 150_i2c_internal
+    LOCAL 151_i2c_internal
+    LOCAL 152_i2c_internal
+    LOCAL 153_i2c_internal
+    LOCAL 154_i2c_internal
+    LOCAL 155_i2c_internal
+    LOCAL 156_i2c_internal
+    LOCAL 157_i2c_internal
+    LOCAL 158_i2c_internal
+    LOCAL 159_i2c_internal
+    LOCAL 160_i2c_internal
+    LOCAL 161_i2c_internal
+    LOCAL 162_i2c_internal
+    LOCAL 163_i2c_internal
+    LOCAL 164_i2c_internal
+    LOCAL 165_i2c_internal
+    LOCAL 166_i2c_internal
+    LOCAL 167_i2c_internal
+    LOCAL 168_i2c_internal
+    LOCAL 169_i2c_internal
+    LOCAL 170_i2c_internal
+    LOCAL 171_i2c_internal
+    LOCAL 172_i2c_internal
+    LOCAL 173_i2c_internal
+    PARAM self
+    PARAM i
+    130_i2c_internal = ALLOCATE Int
+    SETATTR 130_i2c_internal 0 0
+    IF [] GOTO 33_LABEL
+    132_i2c_internal = ALLOCATE Int
+    SETATTR 132_i2c_internal 0 1
+    IF [] GOTO 35_LABEL
+    134_i2c_internal = ALLOCATE Int
+    SETATTR 134_i2c_internal 0 2
+    IF [] GOTO 37_LABEL
+    136_i2c_internal = ALLOCATE Int
+    SETATTR 136_i2c_internal 0 3
+    IF [] GOTO 39_LABEL
+    138_i2c_internal = ALLOCATE Int
+    SETATTR 138_i2c_internal 0 4
+    IF [] GOTO 41_LABEL
+    140_i2c_internal = ALLOCATE Int
+    SETATTR 140_i2c_internal 0 5
+    IF [] GOTO 43_LABEL
+    142_i2c_internal = ALLOCATE Int
+    SETATTR 142_i2c_internal 0 6
+    IF [] GOTO 45_LABEL
+    144_i2c_internal = ALLOCATE Int
+    SETATTR 144_i2c_internal 0 7
+    IF [] GOTO 47_LABEL
+    146_i2c_internal = ALLOCATE Int
+    SETATTR 146_i2c_internal 0 8
+    IF [] GOTO 49_LABEL
+    148_i2c_internal = ALLOCATE Int
+    SETATTR 148_i2c_internal 0 9
+    IF [] GOTO 51_LABEL
+    ARG self
+    150_i2c_internal = TYPEOF self
+    151_i2c_internal = VCALL 150_i2c_internal A2I_abort
+    153_i2c_internal = ALLOCATE Int
+    SETATTR 153_i2c_internal 0 0
+    152_i2c_internal = ALLOCATE String
+    SETATTR 152_i2c_internal 0 153_i2c_internal
+    SETATTR 152_i2c_internal 1 data_11
+    GOTO 52_LABEL
+    LABEL 51_LABEL
+    155_i2c_internal = ALLOCATE Int
+    SETATTR 155_i2c_internal 0 1
+    154_i2c_internal = ALLOCATE String
+    SETATTR 154_i2c_internal 0 155_i2c_internal
+    SETATTR 154_i2c_internal 1 data_12
+    LABEL 52_LABEL
+    GOTO 50_LABEL
+    LABEL 49_LABEL
+    157_i2c_internal = ALLOCATE Int
+    SETATTR 157_i2c_internal 0 1
+    156_i2c_internal = ALLOCATE String
+    SETATTR 156_i2c_internal 0 157_i2c_internal
+    SETATTR 156_i2c_internal 1 data_13
+    LABEL 50_LABEL
+    GOTO 48_LABEL
+    LABEL 47_LABEL
+    159_i2c_internal = ALLOCATE Int
+    SETATTR 159_i2c_internal 0 1
+    158_i2c_internal = ALLOCATE String
+    SETATTR 158_i2c_internal 0 159_i2c_internal
+    SETATTR 158_i2c_internal 1 data_14
+    LABEL 48_LABEL
+    GOTO 46_LABEL
+    LABEL 45_LABEL
+    161_i2c_internal = ALLOCATE Int
+    SETATTR 161_i2c_internal 0 1
+    160_i2c_internal = ALLOCATE String
+    SETATTR 160_i2c_internal 0 161_i2c_internal
+    SETATTR 160_i2c_internal 1 data_15
+    LABEL 46_LABEL
+    GOTO 44_LABEL
+    LABEL 43_LABEL
+    163_i2c_internal = ALLOCATE Int
+    SETATTR 163_i2c_internal 0 1
+    162_i2c_internal = ALLOCATE String
+    SETATTR 162_i2c_internal 0 163_i2c_internal
+    SETATTR 162_i2c_internal 1 data_16
+    LABEL 44_LABEL
+    GOTO 42_LABEL
+    LABEL 41_LABEL
+    165_i2c_internal = ALLOCATE Int
+    SETATTR 165_i2c_internal 0 1
+    164_i2c_internal = ALLOCATE String
+    SETATTR 164_i2c_internal 0 165_i2c_internal
+    SETATTR 164_i2c_internal 1 data_17
+    LABEL 42_LABEL
+    GOTO 40_LABEL
+    LABEL 39_LABEL
+    167_i2c_internal = ALLOCATE Int
+    SETATTR 167_i2c_internal 0 1
+    166_i2c_internal = ALLOCATE String
+    SETATTR 166_i2c_internal 0 167_i2c_internal
+    SETATTR 166_i2c_internal 1 data_18
+    LABEL 40_LABEL
+    GOTO 38_LABEL
+    LABEL 37_LABEL
+    169_i2c_internal = ALLOCATE Int
+    SETATTR 169_i2c_internal 0 1
+    168_i2c_internal = ALLOCATE String
+    SETATTR 168_i2c_internal 0 169_i2c_internal
+    SETATTR 168_i2c_internal 1 data_19
+    LABEL 38_LABEL
+    GOTO 36_LABEL
+    LABEL 35_LABEL
+    171_i2c_internal = ALLOCATE Int
+    SETATTR 171_i2c_internal 0 1
+    170_i2c_internal = ALLOCATE String
+    SETATTR 170_i2c_internal 0 171_i2c_internal
+    SETATTR 170_i2c_internal 1 data_20
+    LABEL 36_LABEL
+    GOTO 34_LABEL
+    LABEL 33_LABEL
+    173_i2c_internal = ALLOCATE Int
+    SETATTR 173_i2c_internal 0 1
+    172_i2c_internal = ALLOCATE String
+    SETATTR 172_i2c_internal 0 173_i2c_internal
+    SETATTR 172_i2c_internal 1 data_21
+    LABEL 34_LABEL
+    RETURN 
+}
+
+function A2I_a2i {
+    LOCAL 174_a2i_s
+    LOCAL 175_a2i_internal
+    LOCAL 176_a2i_internal
+    LOCAL 177_a2i_internal
+    LOCAL 178_a2i_internal
+    LOCAL 179_a2i_internal
+    LOCAL 180_a2i_internal
+    LOCAL 181_a2i_internal
+    LOCAL 182_a2i_internal
+    LOCAL 183_a2i_internal
+    LOCAL 184_a2i_internal
+    LOCAL 185_a2i_internal
+    LOCAL 186_a2i_internal
+    LOCAL 187_a2i_internal
+    LOCAL 188_a2i_internal
+    LOCAL 189_a2i_internal
+    LOCAL 190_a2i_internal
+    LOCAL 191_a2i_internal
+    LOCAL 192_a2i_internal
+    LOCAL 193_a2i_internal
+    LOCAL 194_a2i_internal
+    LOCAL 195_a2i_internal
+    LOCAL 196_a2i_internal
+    LOCAL 197_a2i_internal
+    LOCAL 198_a2i_internal
+    LOCAL 199_a2i_internal
+    LOCAL 200_a2i_internal
+    LOCAL 201_a2i_internal
+    LOCAL 202_a2i_internal
+    LOCAL 203_a2i_internal
+    LOCAL 204_a2i_internal
+    LOCAL 205_a2i_internal
+    LOCAL 206_a2i_internal
+    LOCAL 207_a2i_internal
+    LOCAL 208_a2i_internal
+    LOCAL 209_a2i_internal
+    LOCAL 210_a2i_internal
+    LOCAL 211_a2i_internal
+    LOCAL 212_a2i_internal
+    LOCAL 213_a2i_internal
+    LOCAL 214_a2i_internal
+    PARAM self
+    PARAM s
+    ARG self
+    175_a2i_internal = TYPEOF 174_a2i_s
+    176_a2i_internal = VCALL 175_a2i_internal String_length
+    177_a2i_internal = ALLOCATE Int
+    SETATTR 177_a2i_internal 0 0
+    IF [] GOTO 53_LABEL
+    179_a2i_internal = ALLOCATE Int
+    SETATTR 179_a2i_internal 0 1
+    ARG 179_a2i_internal
+    180_a2i_internal = ALLOCATE Int
+    SETATTR 180_a2i_internal 0 0
+    ARG 180_a2i_internal
+    ARG self
+    181_a2i_internal = TYPEOF 174_a2i_s
+    182_a2i_internal = VCALL 181_a2i_internal String_substr
+    184_a2i_internal = ALLOCATE Int
+    SETATTR 184_a2i_internal 0 1
+    183_a2i_internal = ALLOCATE String
+    SETATTR 183_a2i_internal 0 184_a2i_internal
+    SETATTR 183_a2i_internal 1 data_22
+    IF [] GOTO 55_LABEL
+    186_a2i_internal = ALLOCATE Int
+    SETATTR 186_a2i_internal 0 1
+    ARG 186_a2i_internal
+    187_a2i_internal = ALLOCATE Int
+    SETATTR 187_a2i_internal 0 0
+    ARG 187_a2i_internal
+    ARG self
+    188_a2i_internal = TYPEOF 174_a2i_s
+    189_a2i_internal = VCALL 188_a2i_internal String_substr
+    191_a2i_internal = ALLOCATE Int
+    SETATTR 191_a2i_internal 0 1
+    190_a2i_internal = ALLOCATE String
+    SETATTR 190_a2i_internal 0 191_a2i_internal
+    SETATTR 190_a2i_internal 1 data_23
+    IF [] GOTO 57_LABEL
+    ARG 174_a2i_s
+    ARG self
+    193_a2i_internal = TYPEOF self
+    194_a2i_internal = VCALL 193_a2i_internal A2I_a2i_aux
+    GOTO 58_LABEL
+    LABEL 57_LABEL
+    ARG self
+    195_a2i_internal = TYPEOF 174_a2i_s
+    196_a2i_internal = VCALL 195_a2i_internal String_length
+    197_a2i_internal = ALLOCATE Int
+    SETATTR 197_a2i_internal 0 1
+    198_a2i_internal = 196_a2i_internal - 197_a2i_internal
+    ARG 198_a2i_internal
+    199_a2i_internal = ALLOCATE Int
+    SETATTR 199_a2i_internal 0 1
+    ARG 199_a2i_internal
+    ARG self
+    200_a2i_internal = TYPEOF 174_a2i_s
+    201_a2i_internal = VCALL 200_a2i_internal String_substr
+    ARG 201_a2i_internal
+    ARG self
+    202_a2i_internal = TYPEOF self
+    203_a2i_internal = VCALL 202_a2i_internal A2I_a2i_aux
+    LABEL 58_LABEL
+    GOTO 56_LABEL
+    LABEL 55_LABEL
+    ARG self
+    204_a2i_internal = TYPEOF 174_a2i_s
+    205_a2i_internal = VCALL 204_a2i_internal String_length
+    206_a2i_internal = ALLOCATE Int
+    SETATTR 206_a2i_internal 0 1
+    207_a2i_internal = 205_a2i_internal - 206_a2i_internal
+    ARG 207_a2i_internal
+    208_a2i_internal = ALLOCATE Int
+    SETATTR 208_a2i_internal 0 1
+    ARG 208_a2i_internal
+    ARG self
+    209_a2i_internal = TYPEOF 174_a2i_s
+    210_a2i_internal = VCALL 209_a2i_internal String_substr
+    ARG 210_a2i_internal
+    ARG self
+    211_a2i_internal = TYPEOF self
+    212_a2i_internal = VCALL 211_a2i_internal A2I_a2i_aux
+    213_a2i_internal = 0 - 212_a2i_internal
+    LABEL 56_LABEL
+    GOTO 54_LABEL
+    LABEL 53_LABEL
+    214_a2i_internal = ALLOCATE Int
+    SETATTR 214_a2i_internal 0 0
+    LABEL 54_LABEL
+    RETURN 
+}
+
+function A2I_a2i_aux {
+    LOCAL 215_a2i_aux_int
+    LOCAL 216_a2i_aux_internal
+    LOCAL 217_a2i_aux_j
+    LOCAL 218_a2i_aux_s
+    LOCAL 219_a2i_aux_internal
+    LOCAL 220_a2i_aux_internal
+    LOCAL 221_a2i_aux_i
+    LOCAL 222_a2i_aux_internal
+    LOCAL 223_a2i_aux_internal
+    LOCAL 224_a2i_aux_internal
+    LOCAL 225_a2i_aux_internal
+    LOCAL 226_a2i_aux_internal
+    LOCAL 227_a2i_aux_internal
+    LOCAL 228_a2i_aux_internal
+    LOCAL 229_a2i_aux_internal
+    LOCAL 230_a2i_aux_internal
+    LOCAL 231_a2i_aux_internal
+    LOCAL 232_a2i_aux_internal
+    LOCAL 233_a2i_aux_internal
+    PARAM self
+    PARAM s
+    216_a2i_aux_internal = ALLOCATE Int
+    SETATTR 216_a2i_aux_internal 0 0
+    215_a2i_aux_int = 216_a2i_aux_internal
+    ARG self
+    219_a2i_aux_internal = TYPEOF 218_a2i_aux_s
+    220_a2i_aux_internal = VCALL 219_a2i_aux_internal String_length
+    217_a2i_aux_j = 220_a2i_aux_internal
+    222_a2i_aux_internal = ALLOCATE Int
+    SETATTR 222_a2i_aux_internal 0 0
+    221_a2i_aux_i = 222_a2i_aux_internal
+    LABEL 59_LABEL
+    IF [] GOTO 60_LABEL
+    GOTO 61_LABEL
+    LABEL 60_LABEL
+    224_a2i_aux_internal = ALLOCATE Int
+    SETATTR 224_a2i_aux_internal 0 10
+    225_a2i_aux_internal = 215_a2i_aux_int * 224_a2i_aux_internal
+    226_a2i_aux_internal = ALLOCATE Int
+    SETATTR 226_a2i_aux_internal 0 1
+    ARG 226_a2i_aux_internal
+    ARG 221_a2i_aux_i
+    ARG self
+    227_a2i_aux_internal = TYPEOF 218_a2i_aux_s
+    228_a2i_aux_internal = VCALL 227_a2i_aux_internal String_substr
+    ARG 228_a2i_aux_internal
+    ARG self
+    229_a2i_aux_internal = TYPEOF self
+    230_a2i_aux_internal = VCALL 229_a2i_aux_internal A2I_c2i
+    231_a2i_aux_internal = 225_a2i_aux_internal + 230_a2i_aux_internal
+    215_a2i_aux_int = 231_a2i_aux_internal
+    232_a2i_aux_internal = ALLOCATE Int
+    SETATTR 232_a2i_aux_internal 0 1
+    233_a2i_aux_internal = 221_a2i_aux_i + 232_a2i_aux_internal
+    221_a2i_aux_i = 233_a2i_aux_internal
+    GOTO 59_LABEL
+    LABEL 61_LABEL
+    RETURN 215_a2i_aux_int
+}
+
+function A2I_i2a {
+    LOCAL 234_i2a_i
+    LOCAL 235_i2a_internal
+    LOCAL 236_i2a_internal
+    LOCAL 237_i2a_internal
+    LOCAL 238_i2a_internal
+    LOCAL 239_i2a_internal
+    LOCAL 240_i2a_internal
+    LOCAL 241_i2a_internal
+    LOCAL 242_i2a_internal
+    LOCAL 243_i2a_internal
+    LOCAL 244_i2a_internal
+    LOCAL 245_i2a_internal
+    LOCAL 246_i2a_internal
+    LOCAL 247_i2a_internal
+    LOCAL 248_i2a_internal
+    LOCAL 249_i2a_internal
+    LOCAL 250_i2a_internal
+    LOCAL 251_i2a_internal
+    PARAM self
+    PARAM i
+    235_i2a_internal = ALLOCATE Int
+    SETATTR 235_i2a_internal 0 0
+    IF [] GOTO 62_LABEL
+    237_i2a_internal = ALLOCATE Int
+    SETATTR 237_i2a_internal 0 0
+    IF [] GOTO 64_LABEL
+    239_i2a_internal = ALLOCATE Int
+    SETATTR 239_i2a_internal 0 1
+    240_i2a_internal = 0 - 239_i2a_internal
+    241_i2a_internal = 234_i2a_i * 240_i2a_internal
+    ARG 241_i2a_internal
+    ARG self
+    242_i2a_internal = TYPEOF self
+    243_i2a_internal = VCALL 242_i2a_internal A2I_i2a_aux
+    ARG 243_i2a_internal
+    245_i2a_internal = ALLOCATE Int
+    SETATTR 245_i2a_internal 0 1
+    244_i2a_internal = ALLOCATE String
+    SETATTR 244_i2a_internal 0 245_i2a_internal
+    SETATTR 244_i2a_internal 1 data_24
+    ARG self
+    246_i2a_internal = TYPEOF 244_i2a_internal
+    247_i2a_internal = VCALL 246_i2a_internal String_concat
+    GOTO 65_LABEL
+    LABEL 64_LABEL
+    ARG 234_i2a_i
+    ARG self
+    248_i2a_internal = TYPEOF self
+    249_i2a_internal = VCALL 248_i2a_internal A2I_i2a_aux
+    LABEL 65_LABEL
+    GOTO 63_LABEL
+    LABEL 62_LABEL
+    251_i2a_internal = ALLOCATE Int
+    SETATTR 251_i2a_internal 0 1
+    250_i2a_internal = ALLOCATE String
+    SETATTR 250_i2a_internal 0 251_i2a_internal
+    SETATTR 250_i2a_internal 1 data_25
+    LABEL 63_LABEL
+    RETURN 
+}
+
+function A2I_i2a_aux {
+    LOCAL 252_i2a_aux_i
+    LOCAL 253_i2a_aux_internal
+    LOCAL 254_i2a_aux_internal
+    LOCAL 255_i2a_aux_next
+    LOCAL 256_i2a_aux_internal
+    LOCAL 257_i2a_aux_internal
+    LOCAL 258_i2a_aux_internal
+    LOCAL 259_i2a_aux_internal
+    LOCAL 260_i2a_aux_internal
+    LOCAL 261_i2a_aux_internal
+    LOCAL 262_i2a_aux_internal
+    LOCAL 263_i2a_aux_internal
+    LOCAL 264_i2a_aux_internal
+    LOCAL 265_i2a_aux_internal
+    LOCAL 266_i2a_aux_internal
+    LOCAL 267_i2a_aux_internal
+    LOCAL 268_i2a_aux_internal
+    PARAM self
+    PARAM i
+    253_i2a_aux_internal = ALLOCATE Int
+    SETATTR 253_i2a_aux_internal 0 0
+    IF [] GOTO 66_LABEL
+    256_i2a_aux_internal = ALLOCATE Int
+    SETATTR 256_i2a_aux_internal 0 10
+    257_i2a_aux_internal = 252_i2a_aux_i / 256_i2a_aux_internal
+    255_i2a_aux_next = 257_i2a_aux_internal
+    258_i2a_aux_internal = ALLOCATE Int
+    SETATTR 258_i2a_aux_internal 0 10
+    259_i2a_aux_internal = 255_i2a_aux_next * 258_i2a_aux_internal
+    260_i2a_aux_internal = 252_i2a_aux_i - 259_i2a_aux_internal
+    ARG 260_i2a_aux_internal
+    ARG self
+    261_i2a_aux_internal = TYPEOF self
+    262_i2a_aux_internal = VCALL 261_i2a_aux_internal A2I_i2c
+    ARG 262_i2a_aux_internal
+    ARG 255_i2a_aux_next
+    ARG self
+    263_i2a_aux_internal = TYPEOF self
+    264_i2a_aux_internal = VCALL 263_i2a_aux_internal A2I_i2a_aux
+    ARG self
+    265_i2a_aux_internal = TYPEOF 264_i2a_aux_internal
+    266_i2a_aux_internal = VCALL 265_i2a_aux_internal String_concat
+    GOTO 67_LABEL
+    LABEL 66_LABEL
+    268_i2a_aux_internal = ALLOCATE Int
+    SETATTR 268_i2a_aux_internal 0 0
+    267_i2a_aux_internal = ALLOCATE String
+    SETATTR 267_i2a_aux_internal 0 268_i2a_aux_internal
+    SETATTR 267_i2a_aux_internal 1 data_26
+    LABEL 67_LABEL
+    RETURN 
+}
+
+function Main_ctr {
+    LOCAL 269_ctr_internal
+    LOCAL 270_ctr_internal
+    LOCAL 271_ctr_internal
+    PARAM self
+    270_ctr_internal = ALLOCATE Int
+    SETATTR 270_ctr_internal 0 0
+    269_ctr_internal = ALLOCATE String
+    SETATTR 269_ctr_internal 0 270_ctr_internal
+    SETATTR 269_ctr_internal 1 data_27
+    SETATTR self 0 269_ctr_internal
+    SETATTR self 1 void
+    SETATTR self 2 void
+    271_ctr_internal = ALLOCATE Bool
+    SETATTR 271_ctr_internal 0 1
+    SETATTR self 3 271_ctr_internal
+    RETURN self
+}
+
+function Main_menu {
+    LOCAL 272_menu_internal
+    LOCAL 273_menu_internal
+    LOCAL 274_menu_internal
+    LOCAL 275_menu_internal
+    LOCAL 276_menu_avar
+    LOCAL 277_menu_internal
+    LOCAL 278_menu_internal
+    LOCAL 279_menu_internal
+    LOCAL 280_menu_internal
+    LOCAL 281_menu_internal
+    LOCAL 282_menu_internal
+    LOCAL 283_menu_internal
+    LOCAL 284_menu_internal
+    LOCAL 285_menu_internal
+    LOCAL 286_menu_internal
+    LOCAL 287_menu_internal
+    LOCAL 288_menu_internal
+    LOCAL 289_menu_internal
+    LOCAL 290_menu_internal
+    LOCAL 291_menu_internal
+    LOCAL 292_menu_internal
+    LOCAL 293_menu_internal
+    LOCAL 294_menu_internal
+    LOCAL 295_menu_internal
+    LOCAL 296_menu_internal
+    LOCAL 297_menu_internal
+    LOCAL 298_menu_internal
+    LOCAL 299_menu_internal
+    LOCAL 300_menu_internal
+    LOCAL 301_menu_internal
+    LOCAL 302_menu_internal
+    LOCAL 303_menu_internal
+    LOCAL 304_menu_internal
+    LOCAL 305_menu_internal
+    LOCAL 306_menu_internal
+    LOCAL 307_menu_internal
+    LOCAL 308_menu_internal
+    LOCAL 309_menu_internal
+    LOCAL 310_menu_internal
+    LOCAL 311_menu_internal
+    LOCAL 312_menu_internal
+    LOCAL 313_menu_internal
+    LOCAL 314_menu_internal
+    LOCAL 315_menu_internal
+    LOCAL 316_menu_internal
+    LOCAL 317_menu_internal
+    LOCAL 318_menu_internal
+    LOCAL 319_menu_internal
+    LOCAL 320_menu_internal
+    LOCAL 321_menu_internal
+    LOCAL 322_menu_internal
+    LOCAL 323_menu_internal
+    LOCAL 324_menu_internal
+    LOCAL 325_menu_internal
+    LOCAL 326_menu_internal
+    LOCAL 327_menu_internal
+    LOCAL 328_menu_internal
+    LOCAL 329_menu_internal
+    LOCAL 330_menu_internal
+    LOCAL 331_menu_internal
+    LOCAL 332_menu_internal
+    LOCAL 333_menu_internal
+    LOCAL 334_menu_internal
+    LOCAL 335_menu_internal
+    LOCAL 336_menu_internal
+    LOCAL 337_menu_internal
+    LOCAL 338_menu_internal
+    LOCAL 339_menu_internal
+    LOCAL 340_menu_internal
+    LOCAL 341_menu_internal
+    LOCAL 342_menu_internal
+    LOCAL 343_menu_internal
+    LOCAL 344_menu_internal
+    LOCAL 345_menu_internal
+    LOCAL 346_menu_internal
+    LOCAL 347_menu_internal
+    LOCAL 348_menu_internal
+    LOCAL 349_menu_internal
+    LOCAL 350_menu_internal
+    LOCAL 351_menu_internal
+    LOCAL 352_menu_internal
+    LOCAL 353_menu_internal
+    LOCAL 354_menu_internal
+    LOCAL 355_menu_internal
+    LOCAL 356_menu_internal
+    LOCAL 357_menu_internal
+    LOCAL 358_menu_internal
+    LOCAL 359_menu_internal
+    LOCAL 360_menu_internal
+    LOCAL 361_menu_internal
+    LOCAL 362_menu_internal
+    PARAM self
+    273_menu_internal = ALLOCATE Int
+    SETATTR 273_menu_internal 0 21
+    272_menu_internal = ALLOCATE String
+    SETATTR 272_menu_internal 0 273_menu_internal
+    SETATTR 272_menu_internal 1 data_28
+    ARG 272_menu_internal
+    ARG self
+    274_menu_internal = TYPEOF self
+    275_menu_internal = VCALL 274_menu_internal Main_out_string
+    ARG 276_menu_avar
+    ARG self
+    277_menu_internal = TYPEOF self
+    278_menu_internal = VCALL 277_menu_internal Main_print
+    280_menu_internal = ALLOCATE Int
+    SETATTR 280_menu_internal 0 12
+    279_menu_internal = ALLOCATE String
+    SETATTR 279_menu_internal 0 280_menu_internal
+    SETATTR 279_menu_internal 1 data_29
+    ARG 279_menu_internal
+    ARG self
+    281_menu_internal = TYPEOF self
+    282_menu_internal = VCALL 281_menu_internal Main_out_string
+    284_menu_internal = ALLOCATE Int
+    SETATTR 284_menu_internal 0 11
+    283_menu_internal = ALLOCATE String
+    SETATTR 283_menu_internal 0 284_menu_internal
+    SETATTR 283_menu_internal 1 data_30
+    ARG 283_menu_internal
+    ARG self
+    285_menu_internal = TYPEOF self
+    286_menu_internal = VCALL 285_menu_internal Main_out_string
+    ARG 276_menu_avar
+    ARG self
+    287_menu_internal = TYPEOF self
+    288_menu_internal = VCALL 287_menu_internal Main_print
+    290_menu_internal = ALLOCATE Int
+    SETATTR 290_menu_internal 0 12
+    289_menu_internal = ALLOCATE String
+    SETATTR 289_menu_internal 0 290_menu_internal
+    SETATTR 289_menu_internal 1 data_31
+    ARG 289_menu_internal
+    ARG self
+    291_menu_internal = TYPEOF self
+    292_menu_internal = VCALL 291_menu_internal Main_out_string
+    294_menu_internal = ALLOCATE Int
+    SETATTR 294_menu_internal 0 32
+    293_menu_internal = ALLOCATE String
+    SETATTR 293_menu_internal 0 294_menu_internal
+    SETATTR 293_menu_internal 1 data_32
+    ARG 293_menu_internal
+    ARG self
+    295_menu_internal = TYPEOF self
+    296_menu_internal = VCALL 295_menu_internal Main_out_string
+    ARG 276_menu_avar
+    ARG self
+    297_menu_internal = TYPEOF self
+    298_menu_internal = VCALL 297_menu_internal Main_print
+    300_menu_internal = ALLOCATE Int
+    SETATTR 300_menu_internal 0 30
+    299_menu_internal = ALLOCATE String
+    SETATTR 299_menu_internal 0 300_menu_internal
+    SETATTR 299_menu_internal 1 data_33
+    ARG 299_menu_internal
+    ARG self
+    301_menu_internal = TYPEOF self
+    302_menu_internal = VCALL 301_menu_internal Main_out_string
+    304_menu_internal = ALLOCATE Int
+    SETATTR 304_menu_internal 0 26
+    303_menu_internal = ALLOCATE String
+    SETATTR 303_menu_internal 0 304_menu_internal
+    SETATTR 303_menu_internal 1 data_34
+    ARG 303_menu_internal
+    ARG self
+    305_menu_internal = TYPEOF self
+    306_menu_internal = VCALL 305_menu_internal Main_out_string
+    ARG 276_menu_avar
+    ARG self
+    307_menu_internal = TYPEOF self
+    308_menu_internal = VCALL 307_menu_internal Main_print
+    310_menu_internal = ALLOCATE Int
+    SETATTR 310_menu_internal 0 12
+    309_menu_internal = ALLOCATE String
+    SETATTR 309_menu_internal 0 310_menu_internal
+    SETATTR 309_menu_internal 1 data_35
+    ARG 309_menu_internal
+    ARG self
+    311_menu_internal = TYPEOF self
+    312_menu_internal = VCALL 311_menu_internal Main_out_string
+    314_menu_internal = ALLOCATE Int
+    SETATTR 314_menu_internal 0 11
+    313_menu_internal = ALLOCATE String
+    SETATTR 313_menu_internal 0 314_menu_internal
+    SETATTR 313_menu_internal 1 data_36
+    ARG 313_menu_internal
+    ARG self
+    315_menu_internal = TYPEOF self
+    316_menu_internal = VCALL 315_menu_internal Main_out_string
+    ARG 276_menu_avar
+    ARG self
+    317_menu_internal = TYPEOF self
+    318_menu_internal = VCALL 317_menu_internal Main_print
+    320_menu_internal = ALLOCATE Int
+    SETATTR 320_menu_internal 0 12
+    319_menu_internal = ALLOCATE String
+    SETATTR 319_menu_internal 0 320_menu_internal
+    SETATTR 319_menu_internal 1 data_37
+    ARG 319_menu_internal
+    ARG self
+    321_menu_internal = TYPEOF self
+    322_menu_internal = VCALL 321_menu_internal Main_out_string
+    324_menu_internal = ALLOCATE Int
+    SETATTR 324_menu_internal 0 9
+    323_menu_internal = ALLOCATE String
+    SETATTR 323_menu_internal 0 324_menu_internal
+    SETATTR 323_menu_internal 1 data_38
+    ARG 323_menu_internal
+    ARG self
+    325_menu_internal = TYPEOF self
+    326_menu_internal = VCALL 325_menu_internal Main_out_string
+    ARG 276_menu_avar
+    ARG self
+    327_menu_internal = TYPEOF self
+    328_menu_internal = VCALL 327_menu_internal Main_print
+    330_menu_internal = ALLOCATE Int
+    SETATTR 330_menu_internal 0 12
+    329_menu_internal = ALLOCATE String
+    SETATTR 329_menu_internal 0 330_menu_internal
+    SETATTR 329_menu_internal 1 data_39
+    ARG 329_menu_internal
+    ARG self
+    331_menu_internal = TYPEOF self
+    332_menu_internal = VCALL 331_menu_internal Main_out_string
+    334_menu_internal = ALLOCATE Int
+    SETATTR 334_menu_internal 0 16
+    333_menu_internal = ALLOCATE String
+    SETATTR 333_menu_internal 0 334_menu_internal
+    SETATTR 333_menu_internal 1 data_40
+    ARG 333_menu_internal
+    ARG self
+    335_menu_internal = TYPEOF self
+    336_menu_internal = VCALL 335_menu_internal Main_out_string
+    ARG 276_menu_avar
+    ARG self
+    337_menu_internal = TYPEOF self
+    338_menu_internal = VCALL 337_menu_internal Main_print
+    340_menu_internal = ALLOCATE Int
+    SETATTR 340_menu_internal 0 30
+    339_menu_internal = ALLOCATE String
+    SETATTR 339_menu_internal 0 340_menu_internal
+    SETATTR 339_menu_internal 1 data_41
+    ARG 339_menu_internal
+    ARG self
+    341_menu_internal = TYPEOF self
+    342_menu_internal = VCALL 341_menu_internal Main_out_string
+    344_menu_internal = ALLOCATE Int
+    SETATTR 344_menu_internal 0 11
+    343_menu_internal = ALLOCATE String
+    SETATTR 343_menu_internal 0 344_menu_internal
+    SETATTR 343_menu_internal 1 data_42
+    ARG 343_menu_internal
+    ARG self
+    345_menu_internal = TYPEOF self
+    346_menu_internal = VCALL 345_menu_internal Main_out_string
+    ARG 276_menu_avar
+    ARG self
+    347_menu_internal = TYPEOF self
+    348_menu_internal = VCALL 347_menu_internal Main_print
+    350_menu_internal = ALLOCATE Int
+    SETATTR 350_menu_internal 0 16
+    349_menu_internal = ALLOCATE String
+    SETATTR 349_menu_internal 0 350_menu_internal
+    SETATTR 349_menu_internal 1 data_43
+    ARG 349_menu_internal
+    ARG self
+    351_menu_internal = TYPEOF self
+    352_menu_internal = VCALL 351_menu_internal Main_out_string
+    354_menu_internal = ALLOCATE Int
+    SETATTR 354_menu_internal 0 32
+    353_menu_internal = ALLOCATE String
+    SETATTR 353_menu_internal 0 354_menu_internal
+    SETATTR 353_menu_internal 1 data_44
+    ARG 353_menu_internal
+    ARG self
+    355_menu_internal = TYPEOF self
+    356_menu_internal = VCALL 355_menu_internal Main_out_string
+    358_menu_internal = ALLOCATE Int
+    SETATTR 358_menu_internal 0 21
+    357_menu_internal = ALLOCATE String
+    SETATTR 357_menu_internal 0 358_menu_internal
+    SETATTR 357_menu_internal 1 data_45
+    ARG 357_menu_internal
+    ARG self
+    359_menu_internal = TYPEOF self
+    360_menu_internal = VCALL 359_menu_internal Main_out_string
+    ARG self
+    361_menu_internal = TYPEOF self
+    362_menu_internal = VCALL 361_menu_internal Main_in_string
+    RETURN 362_menu_internal
+}
+
+function Main_prompt {
+    LOCAL 363_prompt_internal
+    LOCAL 364_prompt_internal
+    LOCAL 365_prompt_internal
+    LOCAL 366_prompt_internal
+    LOCAL 367_prompt_internal
+    LOCAL 368_prompt_internal
+    LOCAL 369_prompt_internal
+    LOCAL 370_prompt_internal
+    LOCAL 371_prompt_internal
+    LOCAL 372_prompt_internal
+    PARAM self
+    364_prompt_internal = ALLOCATE Int
+    SETATTR 364_prompt_internal 0 1
+    363_prompt_internal = ALLOCATE String
+    SETATTR 363_prompt_internal 0 364_prompt_internal
+    SETATTR 363_prompt_internal 1 data_46
+    ARG 363_prompt_internal
+    ARG self
+    365_prompt_internal = TYPEOF self
+    366_prompt_internal = VCALL 365_prompt_internal Main_out_string
+    368_prompt_internal = ALLOCATE Int
+    SETATTR 368_prompt_internal 0 26
+    367_prompt_internal = ALLOCATE String
+    SETATTR 367_prompt_internal 0 368_prompt_internal
+    SETATTR 367_prompt_internal 1 data_47
+    ARG 367_prompt_internal
+    ARG self
+    369_prompt_internal = TYPEOF self
+    370_prompt_internal = VCALL 369_prompt_internal Main_out_string
+    ARG self
+    371_prompt_internal = TYPEOF self
+    372_prompt_internal = VCALL 371_prompt_internal Main_in_string
+    RETURN 372_prompt_internal
+}
+
+function Main_get_int {
+    LOCAL 373_get_int_z
+    LOCAL 374_get_int_internal
+    LOCAL 375_get_int_s
+    LOCAL 376_get_int_internal
+    LOCAL 377_get_int_internal
+    LOCAL 378_get_int_internal
+    LOCAL 379_get_int_internal
+    PARAM self
+    374_get_int_internal = ALLOCATE A2I
+    ARG self
+    374_get_int_internal = CALL A2I_ctr
+    373_get_int_z = 374_get_int_internal
+    ARG self
+    376_get_int_internal = TYPEOF self
+    377_get_int_internal = VCALL 376_get_int_internal Main_prompt
+    375_get_int_s = 377_get_int_internal
+    ARG 375_get_int_s
+    ARG self
+    378_get_int_internal = TYPEOF 373_get_int_z
+    379_get_int_internal = VCALL 378_get_int_internal A2I_a2i
+    RETURN 379_get_int_internal
+}
+
+function Main_is_even {
+    LOCAL 380_is_even_x
+    LOCAL 381_is_even_num
+    LOCAL 382_is_even_internal
+    LOCAL 383_is_even_internal
+    LOCAL 384_is_even_internal
+    LOCAL 385_is_even_internal
+    LOCAL 386_is_even_internal
+    LOCAL 387_is_even_internal
+    LOCAL 388_is_even_internal
+    LOCAL 389_is_even_internal
+    LOCAL 390_is_even_internal
+    LOCAL 391_is_even_internal
+    LOCAL 392_is_even_internal
+    LOCAL 393_is_even_internal
+    LOCAL 394_is_even_internal
+    LOCAL 395_is_even_internal
+    LOCAL 396_is_even_internal
+    PARAM self
+    PARAM num
+    380_is_even_x = 381_is_even_num
+    382_is_even_internal = ALLOCATE Int
+    SETATTR 382_is_even_internal 0 0
+    IF [] GOTO 68_LABEL
+    384_is_even_internal = ALLOCATE Int
+    SETATTR 384_is_even_internal 0 0
+    IF [] GOTO 70_LABEL
+    386_is_even_internal = ALLOCATE Int
+    SETATTR 386_is_even_internal 0 1
+    IF [] GOTO 72_LABEL
+    388_is_even_internal = ALLOCATE Int
+    SETATTR 388_is_even_internal 0 2
+    389_is_even_internal = 380_is_even_x - 388_is_even_internal
+    ARG 389_is_even_internal
+    ARG self
+    390_is_even_internal = TYPEOF self
+    391_is_even_internal = VCALL 390_is_even_internal Main_is_even
+    GOTO 73_LABEL
+    LABEL 72_LABEL
+    392_is_even_internal = ALLOCATE Bool
+    SETATTR 392_is_even_internal 0 0
+    LABEL 73_LABEL
+    GOTO 71_LABEL
+    LABEL 70_LABEL
+    393_is_even_internal = ALLOCATE Bool
+    SETATTR 393_is_even_internal 0 1
+    LABEL 71_LABEL
+    GOTO 69_LABEL
+    LABEL 68_LABEL
+    394_is_even_internal = 0 - 380_is_even_x
+    ARG 394_is_even_internal
+    ARG self
+    395_is_even_internal = TYPEOF self
+    396_is_even_internal = VCALL 395_is_even_internal Main_is_even
+    LABEL 69_LABEL
+    RETURN 
+}
+
+function Main_class_type {
+    PARAM self
+    PARAM var
+    RETURN 
+}
+
+function Main_print {
+    LOCAL 397_print_z
+    LOCAL 398_print_internal
+    LOCAL 399_print_var
+    LOCAL 400_print_internal
+    LOCAL 401_print_internal
+    LOCAL 402_print_internal
+    LOCAL 403_print_internal
+    LOCAL 404_print_internal
+    LOCAL 405_print_internal
+    LOCAL 406_print_internal
+    LOCAL 407_print_internal
+    LOCAL 408_print_internal
+    LOCAL 409_print_internal
+    PARAM self
+    PARAM var
+    398_print_internal = ALLOCATE A2I
+    ARG self
+    398_print_internal = CALL A2I_ctr
+    397_print_z = 398_print_internal
+    ARG self
+    400_print_internal = TYPEOF 399_print_var
+    401_print_internal = VCALL 400_print_internal A_value
+    ARG 401_print_internal
+    ARG self
+    402_print_internal = TYPEOF 397_print_z
+    403_print_internal = VCALL 402_print_internal A2I_i2a
+    ARG 403_print_internal
+    ARG self
+    404_print_internal = TYPEOF self
+    405_print_internal = VCALL 404_print_internal Main_out_string
+    407_print_internal = ALLOCATE Int
+    SETATTR 407_print_internal 0 1
+    406_print_internal = ALLOCATE String
+    SETATTR 406_print_internal 0 407_print_internal
+    SETATTR 406_print_internal 1 data_48
+    ARG 406_print_internal
+    ARG self
+    408_print_internal = TYPEOF self
+    409_print_internal = VCALL 408_print_internal Main_out_string
+    RETURN 409_print_internal
+}
+
+function Main_main {
+    LOCAL 410_main_internal
+    LOCAL 411_main_avar
+    LOCAL 412_main_flag
+    LOCAL 413_main_internal
+    LOCAL 414_main_internal
+    LOCAL 415_main_internal
+    LOCAL 416_main_internal
+    LOCAL 417_main_internal
+    LOCAL 418_main_internal
+    LOCAL 419_main_internal
+    LOCAL 420_main_internal
+    LOCAL 421_main_internal
+    LOCAL 422_main_internal
+    LOCAL 423_main_internal
+    LOCAL 424_main_internal
+    LOCAL 425_main_internal
+    LOCAL 426_main_internal
+    LOCAL 427_main_internal
+    LOCAL 428_main_internal
+    LOCAL 429_main_internal
+    LOCAL 430_main_internal
+    LOCAL 431_main_internal
+    LOCAL 432_main_internal
+    LOCAL 433_main_internal
+    LOCAL 434_main_internal
+    LOCAL 435_main_char
+    LOCAL 436_main_internal
+    LOCAL 437_main_internal
+    LOCAL 438_main_internal
+    LOCAL 439_main_internal
+    LOCAL 440_main_internal
+    LOCAL 441_main_internal
+    LOCAL 442_main_internal
+    LOCAL 443_main_internal
+    LOCAL 444_main_internal
+    LOCAL 445_main_internal
+    LOCAL 446_main_internal
+    LOCAL 447_main_internal
+    LOCAL 448_main_internal
+    LOCAL 449_main_internal
+    LOCAL 450_main_internal
+    LOCAL 451_main_internal
+    LOCAL 452_main_internal
+    LOCAL 453_main_internal
+    LOCAL 454_main_internal
+    LOCAL 455_main_internal
+    LOCAL 456_main_internal
+    LOCAL 457_main_internal
+    LOCAL 458_main_internal
+    LOCAL 459_main_internal
+    LOCAL 460_main_internal
+    LOCAL 461_main_internal
+    LOCAL 462_main_internal
+    LOCAL 463_main_internal
+    LOCAL 464_main_internal
+    LOCAL 465_main_internal
+    LOCAL 466_main_internal
+    LOCAL 467_main_internal
+    LOCAL 468_main_internal
+    LOCAL 469_main_internal
+    LOCAL 470_main_internal
+    LOCAL 471_main_internal
+    LOCAL 472_main_internal
+    LOCAL 473_main_x
+    LOCAL 474_main_internal
+    LOCAL 475_main_internal
+    LOCAL 476_main_internal
+    LOCAL 477_main_internal
+    LOCAL 478_main_internal
+    LOCAL 479_main_internal
+    LOCAL 480_main_internal
+    LOCAL 481_main_internal
+    LOCAL 482_main_internal
+    LOCAL 483_main_internal
+    LOCAL 484_main_internal
+    LOCAL 485_main_internal
+    LOCAL 486_main_internal
+    LOCAL 487_main_internal
+    LOCAL 488_main_internal
+    LOCAL 489_main_internal
+    LOCAL 490_main_internal
+    LOCAL 491_main_internal
+    LOCAL 492_main_internal
+    LOCAL 493_main_internal
+    LOCAL 494_main_internal
+    LOCAL 495_main_internal
+    LOCAL 496_main_internal
+    LOCAL 497_main_internal
+    LOCAL 498_main_internal
+    LOCAL 499_main_internal
+    LOCAL 500_main_internal
+    LOCAL 501_main_internal
+    LOCAL 502_main_a
+    LOCAL 503_main_internal
+    LOCAL 504_main_internal
+    LOCAL 505_main_internal
+    LOCAL 506_main_internal
+    LOCAL 507_main_internal
+    LOCAL 508_main_internal
+    LOCAL 509_main_internal
+    LOCAL 510_main_internal
+    LOCAL 511_main_internal
+    LOCAL 512_main_internal
+    LOCAL 513_main_internal
+    LOCAL 514_main_internal
+    LOCAL 515_main_internal
+    LOCAL 516_main_internal
+    LOCAL 517_main_internal
+    LOCAL 518_main_internal
+    LOCAL 519_main_internal
+    LOCAL 520_main_internal
+    LOCAL 521_main_internal
+    LOCAL 522_main_internal
+    LOCAL 523_main_internal
+    LOCAL 524_main_internal
+    LOCAL 525_main_internal
+    LOCAL 526_main_internal
+    LOCAL 527_main_internal
+    LOCAL 528_main_internal
+    LOCAL 529_main_internal
+    LOCAL 530_main_internal
+    LOCAL 531_main_internal
+    LOCAL 532_main_internal
+    LOCAL 533_main_internal
+    LOCAL 534_main_internal
+    LOCAL 535_main_internal
+    LOCAL 536_main_internal
+    LOCAL 537_main_internal
+    LOCAL 538_main_internal
+    LOCAL 539_main_internal
+    LOCAL 540_main_internal
+    LOCAL 541_main_internal
+    LOCAL 542_main_internal
+    LOCAL 543_main_internal
+    LOCAL 544_main_internal
+    LOCAL 545_main_internal
+    LOCAL 546_main_internal
+    LOCAL 547_main_internal
+    LOCAL 548_main_internal
+    LOCAL 549_main_internal
+    LOCAL 550_main_internal
+    LOCAL 551_main_a_var
+    LOCAL 552_main_internal
+    LOCAL 553_main_internal
+    LOCAL 554_main_internal
+    LOCAL 555_main_internal
+    LOCAL 556_main_internal
+    LOCAL 557_main_internal
+    LOCAL 558_main_internal
+    LOCAL 559_main_internal
+    LOCAL 560_main_internal
+    LOCAL 561_main_internal
+    LOCAL 562_main_internal
+    LOCAL 563_main_internal
+    LOCAL 564_main_internal
+    LOCAL 565_main_internal
+    LOCAL 566_main_internal
+    LOCAL 567_main_internal
+    LOCAL 568_main_internal
+    LOCAL 569_main_internal
+    LOCAL 570_main_internal
+    PARAM self
+    410_main_internal = ALLOCATE A
+    ARG self
+    410_main_internal = CALL A_ctr
+    411_main_avar = 410_main_internal
+    LABEL 74_LABEL
+    IF [] GOTO 75_LABEL
+    GOTO 76_LABEL
+    LABEL 75_LABEL
+    414_main_internal = ALLOCATE Int
+    SETATTR 414_main_internal 0 7
+    413_main_internal = ALLOCATE String
+    SETATTR 413_main_internal 0 414_main_internal
+    SETATTR 413_main_internal 1 data_49
+    ARG 413_main_internal
+    ARG self
+    415_main_internal = TYPEOF self
+    416_main_internal = VCALL 415_main_internal Main_out_string
+    ARG 411_main_avar
+    ARG self
+    417_main_internal = TYPEOF self
+    418_main_internal = VCALL 417_main_internal Main_print
+    ARG self
+    419_main_internal = TYPEOF 411_main_avar
+    420_main_internal = VCALL 419_main_internal A_value
+    ARG 420_main_internal
+    ARG self
+    421_main_internal = TYPEOF self
+    422_main_internal = VCALL 421_main_internal Main_is_even
+    IF [] GOTO 77_LABEL
+    424_main_internal = ALLOCATE Int
+    SETATTR 424_main_internal 0 8
+    423_main_internal = ALLOCATE String
+    SETATTR 423_main_internal 0 424_main_internal
+    SETATTR 423_main_internal 1 data_50
+    ARG 423_main_internal
+    ARG self
+    425_main_internal = TYPEOF self
+    426_main_internal = VCALL 425_main_internal Main_out_string
+    GOTO 78_LABEL
+    LABEL 77_LABEL
+    428_main_internal = ALLOCATE Int
+    SETATTR 428_main_internal 0 9
+    427_main_internal = ALLOCATE String
+    SETATTR 427_main_internal 0 428_main_internal
+    SETATTR 427_main_internal 1 data_51
+    ARG 427_main_internal
+    ARG self
+    429_main_internal = TYPEOF self
+    430_main_internal = VCALL 429_main_internal Main_out_string
+    LABEL 78_LABEL
+    ARG 411_main_avar
+    ARG self
+    431_main_internal = TYPEOF self
+    432_main_internal = VCALL 431_main_internal Main_class_type
+    ARG self
+    433_main_internal = TYPEOF self
+    434_main_internal = VCALL 433_main_internal Main_menu
+    435_main_char = 434_main_internal
+    437_main_internal = ALLOCATE Int
+    SETATTR 437_main_internal 0 1
+    436_main_internal = ALLOCATE String
+    SETATTR 436_main_internal 0 437_main_internal
+    SETATTR 436_main_internal 1 data_52
+    IF [] GOTO 79_LABEL
+    440_main_internal = ALLOCATE Int
+    SETATTR 440_main_internal 0 1
+    439_main_internal = ALLOCATE String
+    SETATTR 439_main_internal 0 440_main_internal
+    SETATTR 439_main_internal 1 data_53
+    IF [] GOTO 81_LABEL
+    443_main_internal = ALLOCATE Int
+    SETATTR 443_main_internal 0 1
+    442_main_internal = ALLOCATE String
+    SETATTR 442_main_internal 0 443_main_internal
+    SETATTR 442_main_internal 1 data_54
+    IF [] GOTO 83_LABEL
+    446_main_internal = ALLOCATE Int
+    SETATTR 446_main_internal 0 1
+    445_main_internal = ALLOCATE String
+    SETATTR 445_main_internal 0 446_main_internal
+    SETATTR 445_main_internal 1 data_55
+    IF [] GOTO 85_LABEL
+    449_main_internal = ALLOCATE Int
+    SETATTR 449_main_internal 0 1
+    448_main_internal = ALLOCATE String
+    SETATTR 448_main_internal 0 449_main_internal
+    SETATTR 448_main_internal 1 data_56
+    IF [] GOTO 87_LABEL
+    452_main_internal = ALLOCATE Int
+    SETATTR 452_main_internal 0 1
+    451_main_internal = ALLOCATE String
+    SETATTR 451_main_internal 0 452_main_internal
+    SETATTR 451_main_internal 1 data_57
+    IF [] GOTO 89_LABEL
+    455_main_internal = ALLOCATE Int
+    SETATTR 455_main_internal 0 1
+    454_main_internal = ALLOCATE String
+    SETATTR 454_main_internal 0 455_main_internal
+    SETATTR 454_main_internal 1 data_58
+    IF [] GOTO 91_LABEL
+    458_main_internal = ALLOCATE Int
+    SETATTR 458_main_internal 0 1
+    457_main_internal = ALLOCATE String
+    SETATTR 457_main_internal 0 458_main_internal
+    SETATTR 457_main_internal 1 data_59
+    IF [] GOTO 93_LABEL
+    461_main_internal = ALLOCATE Int
+    SETATTR 461_main_internal 0 1
+    460_main_internal = ALLOCATE String
+    SETATTR 460_main_internal 0 461_main_internal
+    SETATTR 460_main_internal 1 data_60
+    IF [] GOTO 95_LABEL
+    464_main_internal = ALLOCATE Int
+    SETATTR 464_main_internal 0 1
+    463_main_internal = ALLOCATE String
+    SETATTR 463_main_internal 0 464_main_internal
+    SETATTR 463_main_internal 1 data_61
+    IF [] GOTO 97_LABEL
+    ARG self
+    466_main_internal = TYPEOF 411_main_avar
+    467_main_internal = VCALL 466_main_internal A_value
+    ARG 467_main_internal
+    468_main_internal = ALLOCATE A
+    ARG self
+    468_main_internal = CALL A_ctr
+    ARG self
+    469_main_internal = TYPEOF 468_main_internal
+    470_main_internal = VCALL 469_main_internal A_method1
+    411_main_avar = 470_main_internal
+    GOTO 98_LABEL
+    LABEL 97_LABEL
+    471_main_internal = ALLOCATE Bool
+    SETATTR 471_main_internal 0 0
+    412_main_flag = 471_main_internal
+    LABEL 98_LABEL
+    GOTO 96_LABEL
+    LABEL 95_LABEL
+    472_main_internal = ALLOCATE A
+    ARG self
+    472_main_internal = CALL A_ctr
+    411_main_avar = 472_main_internal
+    LABEL 96_LABEL
+    GOTO 94_LABEL
+    LABEL 93_LABEL
+    473_main_x = void
+    ARG self
+    474_main_internal = TYPEOF 411_main_avar
+    475_main_internal = VCALL 474_main_internal A_value
+    ARG 475_main_internal
+    476_main_internal = ALLOCATE E
+    ARG self
+    476_main_internal = CALL E_ctr
+    ARG self
+    477_main_internal = TYPEOF 476_main_internal
+    478_main_internal = VCALL 477_main_internal E_method6
+    473_main_x = 478_main_internal
+    ARG self
+    479_main_internal = TYPEOF 411_main_avar
+    480_main_internal = VCALL 479_main_internal A_value
+    ARG self
+    481_main_internal = TYPEOF 473_main_x
+    482_main_internal = VCALL 481_main_internal A_value
+    483_main_internal = ALLOCATE Int
+    SETATTR 483_main_internal 0 8
+    484_main_internal = 482_main_internal * 483_main_internal
+    485_main_internal = 480_main_internal - 484_main_internal
+    411_main_avar = 485_main_internal
+    487_main_internal = ALLOCATE Int
+    SETATTR 487_main_internal 0 7
+    486_main_internal = ALLOCATE String
+    SETATTR 486_main_internal 0 487_main_internal
+    SETATTR 486_main_internal 1 data_62
+    ARG 486_main_internal
+    ARG self
+    488_main_internal = TYPEOF self
+    489_main_internal = VCALL 488_main_internal Main_out_string
+    ARG 411_main_avar
+    ARG self
+    490_main_internal = TYPEOF self
+    491_main_internal = VCALL 490_main_internal Main_print
+    493_main_internal = ALLOCATE Int
+    SETATTR 493_main_internal 0 12
+    492_main_internal = ALLOCATE String
+    SETATTR 492_main_internal 0 493_main_internal
+    SETATTR 492_main_internal 1 data_63
+    ARG 492_main_internal
+    ARG self
+    494_main_internal = TYPEOF self
+    495_main_internal = VCALL 494_main_internal Main_out_string
+    ARG 473_main_x
+    ARG self
+    496_main_internal = TYPEOF self
+    497_main_internal = VCALL 496_main_internal Main_print
+    499_main_internal = ALLOCATE Int
+    SETATTR 499_main_internal 0 28
+    498_main_internal = ALLOCATE String
+    SETATTR 498_main_internal 0 499_main_internal
+    SETATTR 498_main_internal 1 data_64
+    ARG 498_main_internal
+    ARG self
+    500_main_internal = TYPEOF self
+    501_main_internal = VCALL 500_main_internal Main_out_string
+    503_main_internal = ALLOCATE A2I
+    ARG self
+    503_main_internal = CALL A2I_ctr
+    502_main_a = 503_main_internal
+    ARG 411_main_avar
+    ARG self
+    504_main_internal = TYPEOF 502_main_a
+    505_main_internal = VCALL 504_main_internal A2I_i2a
+    ARG 505_main_internal
+    ARG self
+    506_main_internal = TYPEOF self
+    507_main_internal = VCALL 506_main_internal Main_out_string
+    509_main_internal = ALLOCATE Int
+    SETATTR 509_main_internal 0 1
+    508_main_internal = ALLOCATE String
+    SETATTR 508_main_internal 0 509_main_internal
+    SETATTR 508_main_internal 1 data_65
+    ARG 508_main_internal
+    ARG self
+    510_main_internal = TYPEOF self
+    511_main_internal = VCALL 510_main_internal Main_out_string
+    411_main_avar = 473_main_x
+    LABEL 94_LABEL
+    GOTO 92_LABEL
+    LABEL 91_LABEL
+    ARG self
+    512_main_internal = TYPEOF 411_main_avar
+    513_main_internal = VCALL 512_main_internal A_value
+    ARG 513_main_internal
+    514_main_internal = ALLOCATE D
+    ARG self
+    514_main_internal = CALL D_ctr
+    ARG self
+    515_main_internal = TYPEOF 514_main_internal
+    516_main_internal = VCALL 515_main_internal D_method7
+    IF [] GOTO 99_LABEL
+    518_main_internal = ALLOCATE Int
+    SETATTR 518_main_internal 0 7
+    517_main_internal = ALLOCATE String
+    SETATTR 517_main_internal 0 518_main_internal
+    SETATTR 517_main_internal 1 data_66
+    ARG 517_main_internal
+    ARG self
+    519_main_internal = TYPEOF self
+    520_main_internal = VCALL 519_main_internal Main_out_string
+    ARG 411_main_avar
+    ARG self
+    521_main_internal = TYPEOF self
+    522_main_internal = VCALL 521_main_internal Main_print
+    524_main_internal = ALLOCATE Int
+    SETATTR 524_main_internal 0 23
+    523_main_internal = ALLOCATE String
+    SETATTR 523_main_internal 0 524_main_internal
+    SETATTR 523_main_internal 1 data_67
+    ARG 523_main_internal
+    ARG self
+    525_main_internal = TYPEOF self
+    526_main_internal = VCALL 525_main_internal Main_out_string
+    GOTO 100_LABEL
+    LABEL 99_LABEL
+    528_main_internal = ALLOCATE Int
+    SETATTR 528_main_internal 0 7
+    527_main_internal = ALLOCATE String
+    SETATTR 527_main_internal 0 528_main_internal
+    SETATTR 527_main_internal 1 data_68
+    ARG 527_main_internal
+    ARG self
+    529_main_internal = TYPEOF self
+    530_main_internal = VCALL 529_main_internal Main_out_string
+    ARG 411_main_avar
+    ARG self
+    531_main_internal = TYPEOF self
+    532_main_internal = VCALL 531_main_internal Main_print
+    534_main_internal = ALLOCATE Int
+    SETATTR 534_main_internal 0 19
+    533_main_internal = ALLOCATE String
+    SETATTR 533_main_internal 0 534_main_internal
+    SETATTR 533_main_internal 1 data_69
+    ARG 533_main_internal
+    ARG self
+    535_main_internal = TYPEOF self
+    536_main_internal = VCALL 535_main_internal Main_out_string
+    LABEL 100_LABEL
+    LABEL 92_LABEL
+    GOTO 90_LABEL
+    LABEL 89_LABEL
+    ARG self
+    537_main_internal = TYPEOF 411_main_avar
+    538_main_internal = VCALL 537_main_internal A_value
+    ARG 538_main_internal
+    539_main_internal = VCALL C method5
+    411_main_avar = 539_main_internal
+    LABEL 90_LABEL
+    GOTO 88_LABEL
+    LABEL 87_LABEL
+    ARG self
+    540_main_internal = TYPEOF 411_main_avar
+    541_main_internal = VCALL 540_main_internal A_value
+    ARG 541_main_internal
+    542_main_internal = VCALL B method5
+    411_main_avar = 542_main_internal
+    LABEL 88_LABEL
+    GOTO 86_LABEL
+    LABEL 85_LABEL
+    ARG self
+    543_main_internal = TYPEOF 411_main_avar
+    544_main_internal = VCALL 543_main_internal A_value
+    ARG 544_main_internal
+    545_main_internal = VCALL A method5
+    411_main_avar = 545_main_internal
+    LABEL 86_LABEL
+    GOTO 84_LABEL
+    LABEL 83_LABEL
+    ARG self
+    546_main_internal = TYPEOF self
+    547_main_internal = VCALL 546_main_internal Main_get_int
+    ARG 547_main_internal
+    548_main_internal = ALLOCATE A
+    ARG self
+    548_main_internal = CALL A_ctr
+    ARG self
+    549_main_internal = TYPEOF 548_main_internal
+    550_main_internal = VCALL 549_main_internal A_set_var
+    551_main_a_var = 550_main_internal
+    ARG self
+    552_main_internal = TYPEOF 551_main_a_var
+    553_main_internal = VCALL 552_main_internal A_value
+    ARG 553_main_internal
+    ARG self
+    554_main_internal = TYPEOF 411_main_avar
+    555_main_internal = VCALL 554_main_internal A_value
+    ARG 555_main_internal
+    556_main_internal = ALLOCATE D
+    ARG self
+    556_main_internal = CALL D_ctr
+    ARG self
+    557_main_internal = TYPEOF 556_main_internal
+    558_main_internal = VCALL 557_main_internal D_method4
+    411_main_avar = 558_main_internal
+    LABEL 84_LABEL
+    GOTO 82_LABEL
+    LABEL 81_LABEL
+    LABEL 82_LABEL
+    GOTO 80_LABEL
+    LABEL 79_LABEL
+    ARG self
+    559_main_internal = TYPEOF self
+    560_main_internal = VCALL 559_main_internal Main_get_int
+    ARG 560_main_internal
+    561_main_internal = ALLOCATE A
+    ARG self
+    561_main_internal = CALL A_ctr
+    ARG self
+    562_main_internal = TYPEOF 561_main_internal
+    563_main_internal = VCALL 562_main_internal A_set_var
+    551_main_a_var = 563_main_internal
+    ARG self
+    564_main_internal = TYPEOF 551_main_a_var
+    565_main_internal = VCALL 564_main_internal A_value
+    ARG 565_main_internal
+    ARG self
+    566_main_internal = TYPEOF 411_main_avar
+    567_main_internal = VCALL 566_main_internal A_value
+    ARG 567_main_internal
+    568_main_internal = ALLOCATE B
+    ARG self
+    568_main_internal = CALL B_ctr
+    ARG self
+    569_main_internal = TYPEOF 568_main_internal
+    570_main_internal = VCALL 569_main_internal B_method2
+    411_main_avar = 570_main_internal
+    LABEL 80_LABEL
+    GOTO 74_LABEL
+    LABEL 76_LABEL
+    RETURN 0
+}
+
+function main {
+    LOCAL 571_main_instance
+    LOCAL 572_main_internal
+    571_main_instance = ALLOCATE Main
+    ARG 571_main_instance
+    571_main_instance = CALL Main_ctr
+    ARG 571_main_instance
+    572_main_internal = VCALL Main Main_main
+    RETURN 0
+}

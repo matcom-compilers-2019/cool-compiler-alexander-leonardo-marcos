@@ -44,7 +44,7 @@ class Cil2MipsVisitor:
         self.emit_code('lw $a1 16($a1)')		# Unbox strings
         self.emit_code('lw $a2 16($a2)')
 
-        self.emit_code('addiu $t0 $t0 1')		# Add space for \0
+        self.emit_code('addi $t0 $t0 1')		# Add space for \0
         self.allocate_memory('$t0', register=True)	# Allocate memory for new string
         self.emit_code('move $t5 $v0')					# Keep the string's reference in v0 and use t7
 
@@ -56,8 +56,8 @@ class Cil2MipsVisitor:
         self.emit_code('lb $a0 0($t4)')			# Copy the character
         self.emit_code('sb $a0 0($t5)')
 
-        self.emit_code('addiu $t5 $t5 1')		# Advance indices
-        self.emit_code('addiu $t4 $t4 1')
+        self.emit_code('addi $t5 $t5 1')		# Advance indices
+        self.emit_code('addi $t4 $t4 1')
         self.emit_code('j _strcat_copy_')
         self.emit_label('_end_strcat_copy_')
 
@@ -71,8 +71,8 @@ class Cil2MipsVisitor:
         self.emit_code('lb $a0 0($t4)')			# Copy the character
         self.emit_code('sb $a0 0($t5)')
 
-        self.emit_code('addiu $t5 $t5 1')		# Advance indices
-        self.emit_code('addiu $t4 $t4 1')
+        self.emit_code('addi $t5 $t5 1')		# Advance indices
+        self.emit_code('addi $t4 $t4 1')
         self.emit_code('j _strcat_copy_snd_')
         self.emit_label('_end_strcat_copy_snd_')
 
@@ -126,8 +126,8 @@ class Cil2MipsVisitor:
         self.emit_instruction(op.lb, reg.a0, self.off_reg(0, reg.t4))
         self.emit_instruction(op.sb, reg.a0, self.off_reg(0, reg.t1))
 
-        self.emit_instruction(op.addiu, reg.t1, reg.t1, 1)
-        self.emit_instruction(op.addiu, reg.t4, reg.t4, 1)
+        self.emit_instruction(op.addi, reg.t1, reg.t1, 1)
+        self.emit_instruction(op.addi, reg.t4, reg.t4, 1)
         self.emit_instruction(op.j, '_substr_copy')
 
         self.emit_label('_index_negative')
@@ -159,8 +159,8 @@ class Cil2MipsVisitor:
         self.emit_label('length_main_loop')
         self.emit_instruction(op.lb, reg.t1, self.off_reg(0, reg.a0))
         self.emit_instruction(op.beqz, reg.t1, 'length_end')
-        self.emit_instruction(op.addiu, reg.a0, reg.a0, 1)
-        self.emit_instruction(op.addiu, reg.a1, reg.a1, 1)
+        self.emit_instruction(op.addi, reg.a0, reg.a0, 1)
+        self.emit_instruction(op.addi, reg.a1, reg.a1, 1)
         self.emit_instruction(op.j, 'length_main_loop')
         self.emit_label('length_end')
         self.emit_instruction(op.move, reg.a0, reg.a1)
@@ -184,7 +184,7 @@ class Cil2MipsVisitor:
         self.visit(ast.CILAllocate(None, 'Int'))
         self.emit_instruction(op.lw, reg.a1, self.off_reg(3, reg.fp))
         self.emit_instruction(op.lw, reg.a1, self.off_reg(0, reg.a1))
-        self.emit_instruction(op.mulu, reg.a1, reg.a1, 4)
+        self.emit_instruction(op.mul, reg.a1, reg.a1, 4)
         self.emit_instruction(op.addu, reg.a1, reg.a1, reg.s1)
         self.emit_instruction(op.lw, reg.a1, self.off_reg(0, reg.a1))
         self.emit_instruction(op.move, reg.a2, '$0')
@@ -217,9 +217,9 @@ class Cil2MipsVisitor:
         self.emit_label('Object_copy_loop')
         self.emit_instruction(op.lw, reg.t1, self.off_reg(0, reg.t0))
         self.emit_instruction(op.sw, reg.t1, self.off_reg(0, reg.v0))
-        self.emit_instruction(op.addiu, reg.t0, reg.t0, 4)
-        self.emit_instruction(op.addiu, reg.v0, reg.v0, 4)
-        self.emit_instruction(op.addiu, reg.t3, reg.t3, 4)
+        self.emit_instruction(op.addi, reg.t0, reg.t0, 4)
+        self.emit_instruction(op.addi, reg.v0, reg.v0, 4)
+        self.emit_instruction(op.addi, reg.t3, reg.t3, 4)
         self.emit_instruction(op.ble, reg.t4, reg.t3, 'Object_copy_loop')
         self.emit_label('Object_copy_end')
         self.emit_instruction(op.move, reg.v0, reg.t2)
@@ -255,7 +255,8 @@ class Cil2MipsVisitor:
 
     def init_io_out_str(self):
         self.emit_label('IO_out_string')
-        self.emit_instruction(op.lw, reg.a0, self.off_reg(1, reg.sp))
+        self.emit_instruction(op.lw, reg.a0, self.off_reg(1, reg.fp, 12))
+        self.emit_instruction(op.lw, reg.a0, self.off_reg(1, reg.a0))
         self.emit_instruction(op.li, reg.v0, 4)
         self.emit_instruction(op.syscall)
         self.emit_instruction(op.jr, reg.ra)
@@ -311,19 +312,19 @@ class Cil2MipsVisitor:
 
     def push(self, register, off = 0):
         self.emit_instruction(op.sw, register, self.off_reg(off, reg.sp))
-        self.emit_instruction(op.addiu, reg.sp, reg.sp, -4)
+        self.emit_instruction(op.addi, reg.sp, reg.sp, -4)
         # self.emit_code(f'sw {reg} {off * 4}($sp)')
-        # self.emit_code(f'addiu $sp $sp -4')
+        # self.emit_code(f'addi $sp $sp -4')
 
     def pop(self, register):
         self.emit_instruction(op.lw, register, self.off_reg(4, reg.sp))
         self.stack_allign()
         # self.emit_code(f'lw {reg} 4($sp)')
-        # self.emit_code(f'addiu $sp $sp 4')
+        # self.emit_code(f'addi $sp $sp 4')
 
     def stack_allign(self):
-        self.emit_instruction(op.addiu, reg.sp, reg.sp, 4)
-        # self.emit_code('addiu $sp $sp 4')
+        self.emit_instruction(op.addi, reg.sp, reg.sp, 4)
+        # self.emit_code('addi $sp $sp 4')
 
     def emit_label(self, label):
         self.emit_code(label + ':')
@@ -420,7 +421,7 @@ class Cil2MipsVisitor:
         for method in node.methods:
             # self.visit(method)
             name = '_'.join(method.mname.split('_')[1:])
-            print(method, name)
+            # print(method.mname, name)
             self.emit_data(f'{node.name}_{name}_method: .word {self.context.mmap[method.mname]}')
 
             # self.emit_data(f'   .word {self.context.mmap[method.mname]}')
@@ -428,12 +429,36 @@ class Cil2MipsVisitor:
 
     @visitor.when(ast.CILData)
     def visit(self, node: ast.CILData):
-        self.emit_data_rec(datatype.asciiz, [node.value], node.name)
+        print(node.value)
+
+        if node.value == '':
+            value = '""'
+        elif isinstance(node.value, str):
+            value = node.value
+        else:
+            value = f'"{node.value}"'
+        self.emit_data(f'{node.name}: .asciiz {value}')
+        # self.emit_data_rec(datatype.asciiz, [node.value], node.name)
 
     @visitor.when(ast.CILFunction)
     def visit(self, node: ast.CILFunction):
         # print("Function")
         # print(node.fname + " Function")
+        methods = [
+            'Object_abort',
+            'Object_type_name',
+            'Object_copy',
+            'String_concat',
+            'String_substr',
+            'String_length',
+            'IO_in_int',
+            'IO_out_int',
+            'IO_in_string',
+            'IO_out_string',
+        ]
+        if node.fname in methods: 
+            return
+
         self.emit_code("\n# Function start")
         self.emit_label(node.fname)
         self.emit_instruction(op.move, reg.fp, reg.sp)
@@ -445,22 +470,21 @@ class Cil2MipsVisitor:
             self.visit(instruction)
 
         # self.popa(['a0'])
-
         computed = self.off_reg(1, reg.sp)
         self.emit_instruction(op.lw, reg.ra, computed)
 
         z = 4 * node.param_count + 8
-        self.emit_instruction(op.addiu, reg.sp, reg.sp, z)
+        self.emit_instruction(op.addi, reg.sp, reg.sp, z)
         
         computed = self.off_reg(0, reg.sp)
         self.emit_instruction(op.lw, reg.fp, computed)
-        # self.emit_instruction(op.jr, reg.ra)
+        self.emit_instruction(op.jr, reg.ra)
         self.emit_code("\n# Function end")
 
     @visitor.when(ast.CILMethod)
     def visit(self, node: ast.CILMethod):
         self.emit_code("\n# Method")        
-        print('AAAAAAAAA')
+        # print('AAAAAAAAA')
         name = '_'.join(node.mname.split('_')[1:])
         self.emit_data(f'{self.current_class_name}_{name}: .word {self.context.mmap[node.mname]}')
 
@@ -564,6 +588,8 @@ class Cil2MipsVisitor:
         elif isinstance(node.src, ast.CILData):
         # elif node.src.name[:5] == "data_":
             self.emit_instruction(op.la, reg.a0, node.src.name)
+        elif node.src == 'void':
+            self.emit_instruction(op.li, reg.a0, 0)
         elif isinstance(node.src, str):
             src_offset = self.off_reg(self.context.lmap[node.src], reg.fp)
             self.emit_instruction(op.lw, reg.a0, src_offset)
@@ -572,6 +598,13 @@ class Cil2MipsVisitor:
             self.emit_instruction(op.lw, reg.a0, src_offset)
 
         # Store the value
+        # print(node)
+        if isinstance(node.attribute, int):
+            attr = node.attribute
+        else:
+            print(node.attribute.name)
+            print(node.attribute.holder)
+            attr = node.attribute.holder
         attr_offset = self.off_reg(node.attribute, reg.a1, 12)
         # attr_offset = self.off_reg(self.context.amap[node.attribute], reg.a1, 12)
         self.emit_instruction(op.sw, reg.a0, attr_offset)
@@ -610,26 +643,33 @@ class Cil2MipsVisitor:
     def visit(self, node: ast.CILVCall):
         self.emit_code("\n# VCall")
 
-        # Save return address and frame pointer
-        self.emit_code(f'addiu $sp, $sp, -8')
-        self.emit_code(f'sw $ra, 4($sp)')
-        self.emit_code(f'sw $fp, 8($sp)')
+        # # Save return address and frame pointer
+        # self.emit_code(f'addi $sp, $sp, -8')
+        # self.emit_code(f'sw $ra, 4($sp)')
+        # self.emit_code(f'sw $fp, 8($sp)')
 
-        if isinstance(node.ttype, VariableInfo):
-            # If node.type is a local CIL variable
-            print(node.ttype.name)
-            print(node.ttype.holder)
-            self.emit_instruction(op.lw, reg.a2, self.off_reg(node.ttype.holder, reg.fp))
-        else:
-            # If node.type a type name
-            print(node.ttype)
-            self.emit_code(f'li $a2, {node.ttype}')
-        self.emit_code(f'mulu $a2, $a2, 4')
-        self.emit_code(f'addu $a2, $a2, $s0')
-        self.emit_code(f'lw $a1, 0($a2)')
+        # if isinstance(node.ttype, VariableInfo):
+        #     # If node.type is a local CIL variable
+        #     # print(node.ttype.name)
+        #     # print(node.ttype.holder)
+        #     self.emit_instruction(op.lw, reg.a2, self.off_reg(node.ttype.holder, reg.fp))
+        # else:
+        #     # If node.type a type name
+        #     # print(node.ttype)
+        #     self.emit_code(f'li $a2, {node.ttype}')
+        # self.emit_code(f'mulu $a2, $a2, 4')
+        # self.emit_code(f'addu $a2, $a2, $s0')
+        # self.emit_code(f'lw $a1, 0($a2)')
 
-
-        self.emit_instruction(op.lw, reg.a0, self.off_reg(self.context.fmap[node.func], a2))
+        # print(node.func)
+        # print(node.func.holder)
+        # if isinstance(node.func, str):
+        #     self.emit_instruction(op.lw, reg.a0, self.off_reg(self.context.mmap[node.func], reg.a2))            
+        # else:
+        #     self.emit_instruction(op.lw, reg.a0, self.off_reg(node.func.holder, reg.a2))
+        # print(self.context.fmap)
+        # print(node.func.holder)
+        self.emit_instruction(op.lw, reg.a0, self.off_reg(self.context.fmap[node.func], reg.a2))            
 
         # Call the function at 0($a0)
         
@@ -643,7 +683,7 @@ class Cil2MipsVisitor:
         # Restore return address and frame pointer
         self.emit_code(f'lw $fp, 8($sp)')
         self.emit_code(f'lw $ra, 4($sp)')
-        self.emit_code(f'addiu $sp, $sp, 8')
+        self.emit_code(f'addi $sp, $sp, 8')
 
         # Save value after restoring $fp
         self.emit_instruction(op.sw, reg.a0, self.off_reg(node.dest.holder, reg.fp))
@@ -669,12 +709,11 @@ class Cil2MipsVisitor:
         elif isinstance(node.value, ast.CILLocal):
             computed = self.off_reg(node.value.vinfo.holder, reg.fp)
             self.emit_instruction(op.lw, reg.a0, computed)
+        elif node.value == None:
+            pass
         else:
             computed = self.off_reg(node.value.holder, reg.fp)
             self.emit_instruction(op.lw, reg.a0, computed)
-
-        # self.emit_instruction(op.jr, reg.ra)
-        # self.emit_instruction(op.jr, reg.ra)
 
     # @visitor.when(ast.CILLoad)
     # def visit(self, node: ast.CILLoad):

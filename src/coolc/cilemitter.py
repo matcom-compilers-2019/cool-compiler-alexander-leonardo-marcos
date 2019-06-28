@@ -18,6 +18,8 @@ class CILWriterVisitor(object):
             return value
         elif isinstance(value, VariableInfo):
             return value.name
+        elif value == None:
+            return None
         else:
             return value.vinfo.name
 

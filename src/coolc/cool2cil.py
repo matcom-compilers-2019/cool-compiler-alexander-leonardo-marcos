@@ -145,7 +145,7 @@ class Cool2CilVisitor:
         
         self.register_instruction(cil.CILReturn, 0)
 
-        self.current_function_name = "entry"
+        self.current_function_name = "main"
         # entry_name = self.build_internal_fname()
         func_node = self.register_func(self.current_function_name)
         func_node.param_count = 1
@@ -197,11 +197,13 @@ class Cool2CilVisitor:
         # Build constructor
         self.build_ctr(attrs)
 
-        # pprint(funcs)
+        # pprint(node.name)
+        # pprint(node.merged)
         for index, func in enumerate(node.merged):
             # print(func.name)
-            fname = self.visit(func)
-            self.context.add_func(fname, index)
+            mnode = self.visit(func)
+            mnode.holder = index
+            self.context.add_func(mnode.name, index + 2)
 
         ttype = self.register_type()
         return ttype
@@ -233,7 +235,10 @@ class Cool2CilVisitor:
         # fname = self.build_internal_fname()
 
         # Method addition
-        self.methods.append(cil.CILMethod(mname))
+        mnode = cil.CILMethod(mname)
+        mnode.holder = node.holder
+        self.context.add_func(mname, mnode.holder)
+        self.methods.append(mnode)
         # print("AAAA")
         # print([x.mname for x in self.methods])
 
@@ -249,7 +254,13 @@ class Cool2CilVisitor:
                 param_vinfo.holder = index
 
             # Method body
-            if not self.current_class_name in ["String", "Int", "Bool", "IO", "Object"]:
+            builtins = ["String", "Int", "Bool", "IO", "Object"]
+            if not self.current_class_name in builtins \
+                and not node.name.startswith('String') \
+                and not node.name.startswith('Int') \
+                and not node.name.startswith('Bool') \
+                and not node.name.startswith('IO') \
+                and not node.name.startswith('Object'):
                 vinfo = self.visit(node.body)
                 # print("Method body vinfo", vinfo.name)
                 self.register_instruction(cil.CILReturn, vinfo)
@@ -258,17 +269,17 @@ class Cool2CilVisitor:
             func_node = self.register_func(mname)
             func_node.param_count = len(node.formal_params)
 
-        return mname
+        return node
 
     @visitor.when(ast.ClassAttribute)
     def visit(self, node: ast.ClassAttribute):
         self.attributes.append(node.name)
 
         if node.init_expr:
-            vsrc = self.visit(node.init_expr).name
+            vsrc = self.visit(node.init_expr)
         else:  # Init with default of the type
             default_init = coolutils.default(node.attr_type)
-            vsrc = self.visit(default_init).name if str(default_init) != "void" else "void"
+            vsrc = self.visit(default_init) if str(default_init) != "void" else "void"
         self_vinfo = VariableInfo('self')
         self_vinfo.holder = 0
         return cil.CILSetAttrib(self_vinfo, node.name, vsrc)
@@ -387,12 +398,15 @@ class Cool2CilVisitor:
         Repeat with destination.        
         """
         source = self.visit(node.expr)
+        vinfo = self.visit(node.identifier)
         for lvar in self.globalvars[self.local_index:]:
-            if lvar.vinfo.name.endswith(node.identifier.name):
+            if lvar.vinfo.name.endswith(vinfo.name):
                 self.register_instruction(cil.CILAssign, lvar.vinfo, source)
                 return lvar
         else:
-            self.register_instruction(cil.CILSetAttrib, VariableInfo('self'), node.identifier.name, source.name)
+            # print(node.identifier, node.identifier.name)
+
+            self.register_instruction(cil.CILSetAttrib, VariableInfo('self'), vinfo, source)
             return node.identifier
 
 
@@ -428,7 +442,8 @@ class Cool2CilVisitor:
         # Generate code for each of the params and push them
         for index, arg in enumerate(reversed(node.arguments)):
             vinfo = self.visit(arg)
-            arg_node = self.register_instruction(cil.CILArg, index)
+            vinfo.holder = index
+            arg_node = self.register_instruction(cil.CILArg, vinfo)
     
         instance = self.visit(node.instance)  
         
@@ -439,7 +454,11 @@ class Cool2CilVisitor:
         vtype = self.define_internal_local()
         self.register_instruction(cil.CILTypeOf, vtype, instance)
         vresult = self.define_internal_local()
-        self.register_instruction(cil.CILVCall, vresult, vtype, node.method)
+        # print(node)
+        # print(node.method)
+
+        mname = f'{node.instance.return_type}_{node.method}'
+        self.register_instruction(cil.CILVCall, vresult, vtype, mname)
         return vresult
 
     @visitor.when(ast.StaticDispatch)
@@ -448,11 +467,13 @@ class Cool2CilVisitor:
         # self.register_instruction(cil.CILDummy, 'sw $fp 0($sp)')
 
         # Generate code for each of the params and push them
-        for index, arg in reversed(enumerate(node.arguments)):
+        for index, arg in enumerate(list(reversed(node.arguments))):
             vinfo = self.visit(arg)
-            arg_node = self.register_instruction(cil.CILArg, index)
+            vinfo.holder = index
+            arg_node = self.register_instruction(cil.CILArg, vinfo)
 
         vresult = self.define_internal_local()
+        # print(node.method)
         self.register_instruction(cil.CILVCall, vresult, node.dispatch_type, node.method)
         return vresult
 
@@ -549,7 +570,7 @@ class Cool2CilVisitor:
 
     @visitor.when(ast.IntegerComplement)
     def visit(self, node: ast.IntegerComplement):
-        vinfo = self.visit(node.expr)
+        vinfo = self.visit(node.integer_expr)
         dest = self.define_internal_local()
         self.register_instruction(cil.CILMinus, dest, 0, vinfo)
         return dest

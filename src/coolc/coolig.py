@@ -85,10 +85,12 @@ class InheritanceGraphVisitor:
     def handle_inheritance(self, scope):
         klasses = scope.get_types_dict()
         for name in self.topological_sort():
+            node = klasses[name]
+
             if name == "Object":
+                node.merged += [x for x in node.features if isinstance(x, ast.ClassMethod)]
                 continue
             
-            node = klasses[name]
             parent = klasses[node.parent]
 
             node.inherited += [x for x in parent.inherited]
@@ -101,3 +103,6 @@ class InheritanceGraphVisitor:
             node.merged += [x for x in node.features \
                 if isinstance(x, ast.ClassMethod) \
                     and x.name not in map(lambda y: y.name, node.inherited)]
+
+            for index, item in enumerate(node.merged):
+                item.holder = index + 2

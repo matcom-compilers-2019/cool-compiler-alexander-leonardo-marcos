@@ -113,6 +113,7 @@ class ClassMethod(ClassFeature):
         self.formal_params = formal_params
         self.return_type = return_type
         self.body = body
+        self.holder = -1
 
     def to_tuple(self):
         return tuple([
